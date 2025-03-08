@@ -65,7 +65,7 @@ export default function ProjectShowcase({ initialTab = "text-editor", className 
   const [activeTab, setActiveTab] = useState(initialTab)
 
   return (
-    <div className="mobile-full-width w-full">
+    <div className="w-full lg:w-[680px] mx-auto">
       <div className="rounded-xl border bg-card shadow-sm overflow-hidden border-y-[1px]">
         {/* Browser-like header */}
         <div className="flex items-center gap-2 border-b bg-muted/40 px-4 py-2">
@@ -109,7 +109,7 @@ export default function ProjectShowcase({ initialTab = "text-editor", className 
 
             {/* Tab navigation */}
             <div className="flex h-[56px] w-full shrink-0 items-center justify-center border-t-[1px] bg-neutral-50">
-              <TabsList className="w-full h-auto bg-transparent justify-center p-1 space-x-1">
+              <TabsList className="w-full max-w-md h-auto bg-transparent justify-center p-1 space-x-2">
                 {projects.map((project) => {
                   const isActive = activeTab === project.id
                   return (
@@ -117,18 +117,26 @@ export default function ProjectShowcase({ initialTab = "text-editor", className 
                       key={project.id}
                       value={project.id}
                       className={cn(
-                        "flex items-center gap-2 py-2 px-4 rounded-full",
-                        "transition-all duration-200",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
+                        "group flex cursor-pointer items-center",
+                        "border border-gray-400 bg-white",
+                        "transition-all duration-200 ease-out",
+                        "hover:bg-gray-200 dark:hover:bg-gray-200",
                         isActive 
-                          ? "bg-white text-primary shadow-sm" 
-                          : "text-gray-600 hover:bg-white/50"
+                          ? "h-[36px] w-auto px-3 justify-start" 
+                          : "h-[36px] w-[36px] rounded-full justify-center"
                       )}
                     >
-                      <div className="flex items-center justify-center">{project.icon}</div>
+                      <div className="flex items-center justify-center">
+                        <div className={cn(
+                          "transition-all duration-200",
+                          "text-gray-1200"
+                        )}>
+                          {project.icon}
+                        </div>
+                      </div>
                       <span
                         className={cn(
-                          "transition-all duration-200",
+                          "ml-2 transition-all duration-200",
                           "opacity-0 max-w-0 overflow-hidden",
                           isActive && "opacity-100 max-w-[100px]"
                         )}

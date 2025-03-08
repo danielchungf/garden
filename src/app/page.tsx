@@ -9,8 +9,7 @@ export default function Home() {
        
         <div className="flex flex-col gap-2">
           <h1 className="text-4xl font-bold tracking-[-0.02em]">Daniel Chung</h1>
-          <p className="text-2xl font-medium tracking-[-0.02em] text-gray-800">Product design</p>
-          <p className="text-xl font-medium tracking-[-0.02em] text-gray-600">Currently working with early-stage startups to ship fast.</p>
+          <p className="text-xl font-medium tracking-[-0.02em] text-gray-600">I'm a product designer working with early-stage startups to quality products, fast.</p>
 
         </div>
      
