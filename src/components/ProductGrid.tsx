@@ -27,7 +27,7 @@ const defaultProducts: Product[] = [
   {
     name: "Sensible",
     description: "The high-yield account for crypto",
-    image: "/sensible-cover.png",
+    image: "/sensible-cover.webp",
     url: "https://www.holdsensible.com/",
   },
   {
@@ -45,7 +45,7 @@ const defaultProducts: Product[] = [
   {
     name: "Ritual Dental",
     description: "Personalized preventive oral care",
-    image: "/ritualdental-cover.jpg",
+    image: "/ritualdental-cover Large.jpeg",
     url: "https://www.ritualdental.com/",
   },
 ];
