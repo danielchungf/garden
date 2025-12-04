@@ -3,7 +3,7 @@ import ProductGrid from "@/components/ProductGrid";
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-[600px] px-6 py-12 leading-relaxed sm:py-24">
+    <main className="mx-auto max-w-[664px] px-6 py-12 leading-relaxed sm:py-24">
       
       <div className="flex flex-col gap-6">
           <div className="rounded-lg overflow-hidden mb-2 w-[100px] h-[100px]">
