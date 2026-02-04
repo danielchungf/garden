@@ -55,3 +55,49 @@
     font-family: -apple-system, BlinkMacSystemFont, var(--font-inter), system-ui, sans-serif;
   }
 }
+
+@layer utilities {
+  /* Color tokens */
+  .text-content-primary { color: theme(colors.neutral.800); }
+  .text-content-secondary { color: theme(colors.neutral.500); }
+  .text-content-accent { color: #FF591E; }
+  .hover\:text-content-accent:hover { color: #FF591E; }
+  .border-muted { border-color: theme(colors.neutral.200); }
+
+  /* Typography tokens */
+  .text-h1 {
+    font-family: var(--font-fustat), sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: -0.02em;
+    line-height: 68px;
+  }
+  .text-h2 {
+    font-family: var(--font-fustat), sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+  }
+  .text-h3 {
+    font-family: var(--font-fustat), sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    line-height: 20px;
+  }
+  .text-body-regular {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+  }
+  .text-body-small {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    line-height: 20px;
+  }
+}
