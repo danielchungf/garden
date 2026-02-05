@@ -48,6 +48,12 @@ export default function ProductGrid() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors" />
+            <span
+              className="absolute top-3 right-3 bg-white/75 backdrop-blur-sm px-2 py-1 rounded-lg text-h4 uppercase text-content-primary opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ fontWeight: 700 }}
+            >
+              Coming Soon
+            </span>
           </div>
           <p className="text-body-small">
             <span className="text-content-primary">{project.name}</span>
