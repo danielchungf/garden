@@ -1,4 +1,5 @@
 import ProductGrid from "@/components/ProductGrid";
+import ProjectsList from "@/components/ProjectsList";
 
 export default function Home() {
   return (
@@ -53,20 +54,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="flex flex-col flex-1">
-            <h2 className="text-h3 text-content-secondary uppercase mb-3">
-              Projects
-            </h2>
-            <a href="https://heywaffle.app/" target="_blank" rel="noopener noreferrer" className="text-body-small text-content-primary hover:text-content-accent w-fit">
-              Waffle
-            </a>
-            <a href="https://www.piper.travel/" target="_blank" rel="noopener noreferrer" className="text-body-small text-content-primary hover:text-content-accent w-fit">
-              Piper
-            </a>
-            <a href="https://sipsip.cafe/" target="_blank" rel="noopener noreferrer" className="text-body-small text-content-primary hover:text-content-accent w-fit">
-              Sipsip
-            </a>
-          </div>
+          <ProjectsList />
         </div>
       </section>
 

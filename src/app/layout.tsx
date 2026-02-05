@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Fustat } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,10 +8,17 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const fustat = Fustat({
+const fustat = localFont({
+  src: [
+    { path: "../../public/fonts/Fustat-ExtraLight.ttf", weight: "200" },
+    { path: "../../public/fonts/Fustat-Light.ttf", weight: "300" },
+    { path: "../../public/fonts/Fustat-Regular.ttf", weight: "400" },
+    { path: "../../public/fonts/Fustat-Medium.ttf", weight: "500" },
+    { path: "../../public/fonts/Fustat-SemiBold.ttf", weight: "600" },
+    { path: "../../public/fonts/Fustat-Bold.ttf", weight: "700" },
+    { path: "../../public/fonts/Fustat-ExtraBold.ttf", weight: "800" },
+  ],
   variable: "--font-fustat",
-  subsets: ["latin"],
-  weight: ["600"],
 });
 
 export const metadata: Metadata = {
