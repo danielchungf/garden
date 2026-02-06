@@ -1,66 +1,185 @@
-import ProductGrid from "@/components/ProductGrid";
-import ProjectsList from "@/components/ProjectsList";
+import Image from "next/image";
+import Link from "next/link";
+import { getProjectBySlug } from "@/data/projects";
+
+const workProjects = [
+  {
+    slug: "dex",
+    name: "Dex",
+    tagline: "The Language Learning Camera",
+    image: "/dex-mini.webp",
+  },
+  {
+    slug: "supper",
+    name: "Supper",
+    tagline: "AI Data Agent",
+    image: "/supper-mini.webp",
+  },
+  {
+    slug: "workmate",
+    name: "Workmate",
+    tagline: "Everyone's Executive Assistant",
+    image: "/workmate-mini.webp",
+  },
+  {
+    slug: "sensible",
+    name: "Sensible",
+    tagline: "High-Yield Account",
+    image: "/sensible-mini.webp",
+  },
+];
+
+function WorkCard({
+  project,
+}: {
+  project: (typeof workProjects)[number];
+}) {
+  const hasDetailPage = !!getProjectBySlug(project.slug);
+
+  const content = (
+    <div className="bg-white border border-muted rounded-xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-neutral-300 transition-colors">
+      <div className="flex items-center justify-center h-[140px]">
+        <Image
+          src={project.image}
+          alt={project.name}
+          width={420}
+          height={420}
+          className="w-[140px] h-[140px] object-contain"
+        />
+      </div>
+      <div className="mt-2 flex flex-col gap-0">
+        <h3 className="text-h2 text-content-primary">{project.name}</h3>
+        <p className="text-body-regular text-content-tertiary">
+          {project.tagline}
+        </p>
+      </div>
+    </div>
+  );
+
+  if (hasDetailPage) {
+    return <Link href={`/${project.slug}`}>{content}</Link>;
+  }
+
+  return content;
+}
 
 export default function Home() {
   return (
-    <main>
-      {/* Header Nav */}
-      <header className="flex gap-5 p-4 border-b border-muted sticky top-0 bg-white z-10">
-        <h1 className="text-h2 text-content-primary flex-1">Daniel Chung</h1>
-        <span className="text-h2 text-content-primary flex-1">Product Designer</span>
-      </header>
-
-      {/* Bio + Lists */}
-      <section className="flex flex-col md:flex-row gap-5 px-4 pt-6 pb-10">
-        <div className="flex-1">
-          <div className="flex flex-col gap-6 md:pr-[100px]">
-            <p className="text-body-regular text-content-primary">
-              I&apos;m a designer who brings new technology to life. I work with
-              early-stage startups to take ideas from zero to one, and I build
-              my own products on the side.
-            </p>
-            <p className="text-body-regular text-content-primary">
-              I grew up in the coastal city of Lima, where I studied
-              communications and spent time building brands and creating tech
-              content. After reviewing hundreds of products, I realized I wanted
-              to build them. So I taught myself design and programming, and
-              I&apos;ve spent the last two years doing exactly that.
-            </p>
-            <p className="text-body-regular text-content-primary">
-              When I&apos;m not designing, I enjoy cooking, overplanning trips,
-              taking photos that sit unedited for a while, and fine-tuning every
-              corner of my apartment.
+    <main className="max-w-[620px] mx-auto px-5 py-[120px] flex flex-col gap-[80px]">
+      {/* Intro */}
+      <section>
+        <div className="flex items-center gap-4 mb-5">
+          <Image
+            src="/image-portfolio.jpg"
+            alt="Daniel Chung"
+            width={168}
+            height={168}
+            className="rounded-full object-cover w-14 h-14"
+          />
+          <div>
+            <h1 className="text-h1 text-content-primary">Hey, I&apos;m Daniel</h1>
+            <p className="text-h2 text-content-secondary">
+              Product Designer for Early-Stage Teams
             </p>
           </div>
         </div>
 
-        <div className="flex gap-5 flex-1">
-          <div className="flex flex-col flex-1">
-            <h2 className="text-h3 text-content-secondary uppercase mb-3">
-              Work
-            </h2>
-            <span className="text-body-small text-content-primary">Dex</span>
-            <span className="text-body-small text-content-primary">
-              Supper
-            </span>
-            <span className="text-body-small text-content-primary">
-              Sensible
-            </span>
-            <span className="text-body-small text-content-primary">
-              Workmate
-            </span>
-            <span className="text-body-small text-content-primary">
-              Ritual Dental
-            </span>
-          </div>
+        <p className="text-body-regular text-content-tertiary">
+          I design and build products that transform how we live. I value
+          quality, because I think a product should feel like someone cared. I
+          value empathy, because it makes us more human. I value curiosity,
+          because it keeps me learning. Ultimately, I create tools that bring joy
+          into everyday moments.
+        </p>
+      </section>
 
-          <ProjectsList />
+      {/* Work */}
+      <section>
+        <h2 className="text-h2 text-content-primary mb-5">Work</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {workProjects.map((project) => (
+            <WorkCard key={project.slug} project={project} />
+          ))}
         </div>
       </section>
 
-      {/* Project Cards Grid */}
-      <section className="px-4 pb-10">
-        <ProductGrid />
+      {/* Projects */}
+      <section>
+        <h2 className="text-h2 text-content-primary mb-5">Projects</h2>
+        <div className="flex flex-col gap-3 -mx-2">
+          {[
+            {
+              name: "Piper",
+              tagline: "Ultimate Travel Planner",
+              href: "https://www.piper.travel/",
+              image: "/piper-logo.webp",
+            },
+            {
+              name: "Waffle",
+              tagline: "The Visual Organization App",
+              href: "https://heywaffle.app/",
+              image: "/waffle-logo.webp",
+            },
+            {
+              name: "SipSip",
+              tagline: "Coffee Intake Tracker",
+              href: "https://sipsip.cafe/",
+              image: "/sipsip-logo.webp",
+            },
+          ].map((project) => (
+            <a
+              key={project.name}
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-5 p-2 rounded-xl hover:bg-neutral-100 transition-colors"
+            >
+              <Image
+                src={project.image}
+                alt={project.name}
+                width={150}
+                height={150}
+                className="w-[50px] h-[50px] object-contain"
+              />
+              <div className="flex flex-col gap-[2px]">
+                <h3 className="text-h2 text-content-primary">
+                  {project.name}
+                </h3>
+                <p className="text-body-regular text-content-tertiary">
+                  {project.tagline}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Stack */}
+      <section>
+        <h2 className="text-h2 text-content-primary mb-5">Stack</h2>
+        <div className="flex -ml-[4px]">
+          {[
+            { name: "Figma", image: "/figma-logo.png" },
+            { name: "Claude", image: "/claude-logo.png" },
+            { name: "Conductor", image: "/conductor-logo.png" },
+            { name: "Monologue", image: "/monologue-logo.png" },
+            { name: "Mobbin", image: "/mobbin-logo.png" },
+            { name: "Supabase", image: "/subapase-logo.png" },
+          ].map((tool) => (
+            <div key={tool.name} className="relative group">
+              <Image
+                src={tool.image}
+                alt={tool.name}
+                width={192}
+                height={192}
+                className="w-16 h-16 object-contain"
+              />
+              <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                {tool.name}
+              </span>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
