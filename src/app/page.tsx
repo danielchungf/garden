@@ -74,7 +74,7 @@ function WorkCard({
 
 export default function Home() {
   return (
-    <main className="max-w-[660px] mx-auto px-5 py-[120px] flex flex-col gap-[80px]">
+    <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px] flex flex-col gap-[80px]">
       {/* Intro */}
       <section>
         <div className="flex items-center gap-4 mb-5">

@@ -1,9 +1,9 @@
-// columns: 1 = half width (side by side), 2 = full width (single row)
+// columns: 1 = half width (side by side), 2 = full width (single row), 3 = third width (three across)
 export type MediaItem =
-  | { type: 'image'; src: string; alt: string; caption?: string; columns?: 1 | 2; fill?: boolean }
-  | { type: 'video'; src: string; poster?: string; caption?: string; columns?: 1 | 2; fill?: boolean }
-  | { type: 'youtube'; videoId: string; caption?: string; columns?: 1 | 2 }
-  | { type: 'vimeo'; videoId: string; caption?: string; columns?: 1 | 2 };
+  | { type: 'image'; src: string; alt: string; caption?: string; columns?: 1 | 2 | 3; fill?: boolean; noBorder?: boolean }
+  | { type: 'video'; src: string; poster?: string; caption?: string; columns?: 1 | 2 | 3; fill?: boolean; noBorder?: boolean }
+  | { type: 'youtube'; videoId: string; caption?: string; columns?: 1 | 2 | 3 }
+  | { type: 'vimeo'; videoId: string; caption?: string; columns?: 1 | 2 | 3 };
 
 export interface TeamMember {
   name: string;
