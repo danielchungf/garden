@@ -6,6 +6,7 @@ import { getProjectBySlug, getAllProjectSlugs } from '@/data/projects';
 import { IconButton } from '@/components/IconButton';
 import MediaRenderer from '@/components/project/MediaRenderer';
 import ContentCard from '@/components/project/ContentCard';
+import ProjectSection from '@/components/project/ProjectSection';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -44,17 +45,29 @@ export default async function ProjectPage({ params }: PageProps) {
         <IconButton icon={ArrowLeft} />
       </Link>
 
-      {/* Hero image - 80px gap from back button */}
+      {/* Hero - 80px gap from back button */}
       <div className="mt-[80px] w-full overflow-hidden rounded-lg bg-neutral-100">
-        <Image
-          src={project.heroImage}
-          alt={project.heroAlt}
-          width={1920}
-          height={1080}
-          className="block w-full h-auto"
-          unoptimized
-          priority
-        />
+        {project.heroVideo ? (
+          <video
+            src={project.heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="block w-full aspect-video object-cover"
+          />
+        ) : project.heroImage ? (
+          <Image
+            src={project.heroImage}
+            alt={project.heroAlt}
+            width={1920}
+            height={1080}
+            className="block w-full h-auto"
+            unoptimized
+            priority
+          />
+        ) : null}
       </div>
 
       {/* Project info - 60px gap from hero */}
@@ -100,7 +113,17 @@ export default async function ProjectPage({ params }: PageProps) {
             <p className="text-body-regular text-content-tertiary">{project.duration}</p>
           </div>
         </div>
+        <div className="pb-[60px] border-b border-muted" />
       </div>
+
+      {/* Sections */}
+      {project.sections && project.sections.length > 0 && (
+        <div className="mt-[60px] flex flex-col gap-[60px]">
+          {project.sections.map((section, index) => (
+            <ProjectSection key={index} title={section.title} body={section.body} media={section.media} />
+          ))}
+        </div>
+      )}
 
       {/* Gallery - 80px gap from metadata */}
       {project.gallery.length > 0 && (
@@ -112,7 +135,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 key={index}
                 className={columns === 2 ? 'col-span-2' : 'col-span-1'}
               >
-                <ContentCard noPadding={item.type === 'image'}>
+                <ContentCard noPadding={item.type === 'image' || (item.type === 'video' && item.fill)}>
                   <MediaRenderer item={item} />
                 </ContentCard>
               </div>

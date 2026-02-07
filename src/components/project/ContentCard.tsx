@@ -5,12 +5,13 @@ import { ReactNode } from 'react';
 interface ContentCardProps {
   children: ReactNode;
   noPadding?: boolean;
+  noBorder?: boolean;
   className?: string;
 }
 
-export default function ContentCard({ children, noPadding, className }: ContentCardProps) {
+export default function ContentCard({ children, noPadding, noBorder, className }: ContentCardProps) {
   return (
-    <div className={`bg-white border border-muted rounded-lg overflow-hidden ${noPadding ? '' : 'p-10'} ${className ?? ''}`}>
+    <div className={`rounded-lg overflow-hidden ${noBorder ? '' : 'bg-white border border-muted'} ${noPadding ? '' : 'p-7'} ${className ?? ''}`}>
       {children}
     </div>
   );

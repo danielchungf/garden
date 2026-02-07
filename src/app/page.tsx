@@ -22,12 +22,14 @@ const workProjects = [
     name: "Workmate",
     tagline: "Everyone's Executive Assistant",
     image: "/workmate-mini.webp",
+    externalUrl: "https://www.workmate.com/",
   },
   {
     slug: "sensible",
     name: "Sensible",
     tagline: "High-Yield Account",
     image: "/sensible-mini.webp",
+    externalUrl: "https://www.coinbase.com/en-gb/blog/Coinbase-acquires-team-to-accelerate-onchain-consumer-roadmap",
   },
 ];
 
@@ -39,7 +41,7 @@ function WorkCard({
   const hasDetailPage = !!getProjectBySlug(project.slug);
 
   const content = (
-    <div className="bg-white border border-muted rounded-lg p-4 hover:border-neutral-200 transition-colors">
+    <div className="work-card relative bg-white border border-muted rounded-lg p-4 hover:border-neutral-200 transition-colors">
       <div className="flex items-center justify-center h-[140px]">
         <Image
           src={project.image}
@@ -55,11 +57,16 @@ function WorkCard({
           {project.tagline}
         </p>
       </div>
+      <div className="work-overlay absolute inset-0 bg-white/50 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none" />
     </div>
   );
 
   if (hasDetailPage) {
     return <Link href={`/${project.slug}`}>{content}</Link>;
+  }
+
+  if ('externalUrl' in project && project.externalUrl) {
+    return <a href={project.externalUrl} target="_blank" rel="noopener noreferrer">{content}</a>;
   }
 
   return content;
@@ -97,7 +104,7 @@ export default function Home() {
       {/* Work */}
       <section>
         <h2 className="text-h2 text-content-primary mb-5">Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="work-grid grid grid-cols-1 md:grid-cols-2 gap-5">
           {workProjects.map((project) => (
             <WorkCard key={project.slug} project={project} />
           ))}
