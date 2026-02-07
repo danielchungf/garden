@@ -80,12 +80,14 @@
   .bg-page { background-color: theme(colors.neutral.50); }
 }
 
-/* Work card hover: dim siblings, not the hovered card */
-.work-grid:has(.work-card:hover) .work-overlay {
-  opacity: 1 !important;
-}
-.work-grid .work-card:hover > .work-overlay {
-  opacity: 0 !important;
+/* Work card hover: dim siblings, not the hovered card (desktop only) */
+@media (hover: hover) {
+  .work-grid:has(.work-card:hover) .work-overlay {
+    opacity: 1 !important;
+  }
+  .work-grid .work-card:hover > .work-overlay {
+    opacity: 0 !important;
+  }
 }
 
 /* Typography tokens */

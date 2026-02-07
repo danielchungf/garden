@@ -41,7 +41,7 @@ function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: s
         playsInline
         preload="auto"
         className={fill
-          ? "block w-full aspect-video object-cover rounded-lg"
+          ? "block w-full h-auto rounded-lg"
           : "block w-full h-[472px] object-contain rounded-lg"
         }
       />
