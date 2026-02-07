@@ -17,7 +17,8 @@ export default function MediaRenderer({ item }: MediaRendererProps) {
             alt={item.alt}
             width={1200}
             height={800}
-            className="w-full h-auto"
+            className="block w-full h-auto"
+            unoptimized
           />
           {item.caption && (
             <figcaption className="text-body-small text-content-secondary mt-3">
@@ -33,12 +34,11 @@ export default function MediaRenderer({ item }: MediaRendererProps) {
           <video
             src={item.src}
             poster={item.poster}
-            controls
             autoPlay
             muted
             loop
             playsInline
-            className="w-full h-auto"
+            className="block w-full h-[472px] object-contain rounded-lg"
           />
           {item.caption && (
             <figcaption className="text-body-small text-content-secondary mt-3">

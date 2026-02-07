@@ -1,8 +1,12 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-neutral-150: #ededed;
+}
+
 @layer base {
   :root {
-    --background: oklch(1 0 0);
+    --background: #fdfdfc;
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
@@ -72,29 +76,29 @@
   .text-content-tertiary { color: theme(colors.neutral.500); }
   .text-content-accent { color: #FF591E; }
   .hover\:text-content-accent:hover { color: #FF591E; }
-  .border-muted { border-color: theme(colors.neutral.200); }
+  .border-muted { border-color: theme(colors.neutral.150); }
   .bg-page { background-color: theme(colors.neutral.50); }
+}
 
-  /* Typography tokens */
-  .text-h1 {
-    font-family: var(--font-inter), sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-    line-height: 26px;
-  }
-  .text-h2 {
-    font-family: var(--font-inter), sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.02em;
-    line-height: 24px;
-  }
-  .text-body-regular {
-    font-family: var(--font-inter), sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: -0.02em;
-    line-height: 24px;
-  }
+/* Typography tokens */
+.text-h1 {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 450;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 26px;
+}
+.text-h2 {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 450;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 24px;
+}
+.text-body-regular {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 26px;
 }

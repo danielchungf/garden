@@ -8,6 +8,7 @@ export type MediaItem =
 export interface TeamMember {
   name: string;
   url?: string;
+  avatar?: string;
 }
 
 export interface ProjectData {

@@ -1,8 +1,10 @@
 import { ProjectData } from '@/types/project';
 import { supperProject } from './supper';
+import { dexProject } from './dex';
 
 export const projects: Record<string, ProjectData> = {
   supper: supperProject,
+  dex: dexProject,
 };
 
 export const getProjectBySlug = (slug: string): ProjectData | undefined =>

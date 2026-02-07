@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Mail, Twitter } from "lucide-react";
+import { IconButton } from "@/components/IconButton";
 import { getProjectBySlug } from "@/data/projects";
 
 const workProjects = [
@@ -37,14 +39,14 @@ function WorkCard({
   const hasDetailPage = !!getProjectBySlug(project.slug);
 
   const content = (
-    <div className="bg-white border border-muted rounded-xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-neutral-300 transition-colors">
+    <div className="bg-white border border-muted rounded-lg p-4 hover:border-neutral-200 transition-colors">
       <div className="flex items-center justify-center h-[140px]">
         <Image
           src={project.image}
           alt={project.name}
           width={420}
           height={420}
-          className="w-[140px] h-[140px] object-contain"
+          className="w-[132px] h-[132px] object-contain"
         />
       </div>
       <div className="mt-2 flex flex-col gap-0">
@@ -65,7 +67,7 @@ function WorkCard({
 
 export default function Home() {
   return (
-    <main className="max-w-[620px] mx-auto px-5 py-[120px] flex flex-col gap-[80px]">
+    <main className="max-w-[660px] mx-auto px-5 py-[120px] flex flex-col gap-[80px]">
       {/* Intro */}
       <section>
         <div className="flex items-center gap-4 mb-5">
@@ -77,7 +79,7 @@ export default function Home() {
             className="rounded-full object-cover w-14 h-14"
           />
           <div>
-            <h1 className="text-h1 text-content-primary">Hey, I&apos;m Daniel</h1>
+            <h1 className="text-h1 text-content-primary">Daniel Chung</h1>
             <p className="text-h2 text-content-secondary">
               Product Designer for Early-Stage Teams
             </p>
@@ -85,11 +87,10 @@ export default function Home() {
         </div>
 
         <p className="text-body-regular text-content-tertiary">
-          I design and build products that transform how we live. I value
-          quality, because I think a product should feel like someone cared. I
-          value empathy, because it makes us more human. I value curiosity,
-          because it keeps me learning. Ultimately, I create tools that bring joy
-          into everyday moments.
+          I design and build products that transform how we live. I focus on
+          quality, empathy, and curiosity. I create products that feel like
+          someone truly cared, that make us more human, and that keep us
+          learning. I build tools that bring joy to everyday moments.
         </p>
       </section>
 
@@ -132,7 +133,7 @@ export default function Home() {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-5 p-2 rounded-xl hover:bg-neutral-100 transition-colors"
+              className="flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors"
             >
               <Image
                 src={project.image}
@@ -179,6 +180,23 @@ export default function Home() {
               </span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Social */}
+      <section>
+        <h2 className="text-h2 text-content-primary mb-5">Reach me</h2>
+        <div className="flex gap-3">
+          <IconButton
+            icon={Mail}
+            href="mailto:danielchungfung@gmail.com"
+          />
+          <IconButton
+            icon={Twitter}
+            href="https://x.com/itsdanielchung"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         </div>
       </section>
     </main>

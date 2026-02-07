@@ -1,9 +1,11 @@
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { getProjectBySlug, getAllProjectSlugs } from '@/data/projects';
-import ProjectHeader from '@/components/project/ProjectHeader';
-import ProjectHero from '@/components/project/ProjectHero';
-import ProjectInfo from '@/components/project/ProjectInfo';
-import ProjectGallery from '@/components/project/ProjectGallery';
+import { IconButton } from '@/components/IconButton';
+import MediaRenderer from '@/components/project/MediaRenderer';
+import ContentCard from '@/components/project/ContentCard';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -36,40 +38,88 @@ export default async function ProjectPage({ params }: PageProps) {
   }
 
   return (
-    <main>
-      <ProjectHeader projectTitle={project.title} />
+    <main className="max-w-[660px] mx-auto px-5 py-[120px] flex flex-col">
+      {/* Back button */}
+      <Link href="/">
+        <IconButton icon={ArrowLeft} />
+      </Link>
 
-      {/* Content with 16px padding */}
-      <div className="p-4">
-        {/* Hero - full width */}
-        <ProjectHero image={project.heroImage} alt={project.heroAlt} />
+      {/* Hero image - 80px gap from back button */}
+      <div className="mt-[80px] w-full overflow-hidden rounded-lg bg-neutral-100">
+        <Image
+          src={project.heroImage}
+          alt={project.heroAlt}
+          width={1920}
+          height={1080}
+          className="block w-full h-auto"
+          unoptimized
+          priority
+        />
+      </div>
 
-        {/* 40px gap between hero and info */}
-        <div className="h-10" />
+      {/* Project info - 60px gap from hero */}
+      <div className="mt-[60px]">
+        <h1 className="text-h1 text-content-primary">{project.title}</h1>
 
-        {/* Two column layout - info in second column */}
-        <div id="project-info" className="flex gap-5">
-          <div className="flex-1" />
-          <div className="flex-1">
-            <ProjectInfo
-              title={project.title}
-              url={project.url}
-              description={project.description}
-              team={project.team}
-              duration={project.duration}
-            />
-          </div>
+        {/* Description - 12px gap from title */}
+        <div className="mt-3 space-y-4">
+          {project.description.map((paragraph, index) => (
+            <p key={index} className="text-body-regular text-content-tertiary">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
-        {/* 40px gap between info and gallery */}
-        <div className="h-10" />
-
-        {/* Gallery - full width with flexible columns */}
-        <ProjectGallery items={project.gallery} />
-
-        {/* 40px bottom margin */}
-        <div className="h-10" />
+        {/* Metadata - 32px gap from description */}
+        <div className="mt-8 grid grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-h2 text-content-primary mb-3">Team</h3>
+            <div className="flex gap-1">
+              {project.team.map((member) => (
+                <div key={member.name} className="relative group">
+                  {member.avatar ? (
+                    <Image
+                      src={member.avatar}
+                      alt={member.name}
+                      width={64}
+                      height={64}
+                      className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                    />
+                  ) : (
+                    <div className="w-8 h-8 rounded-full bg-neutral-200 border-2 border-white" />
+                  )}
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                    {member.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-h2 text-content-primary mb-3">Duration</h3>
+            <p className="text-body-regular text-content-tertiary">{project.duration}</p>
+          </div>
+        </div>
       </div>
+
+      {/* Gallery - 80px gap from metadata */}
+      {project.gallery.length > 0 && (
+        <div className="mt-[80px] grid grid-cols-2 gap-8">
+          {project.gallery.map((item, index) => {
+            const columns = item.columns ?? 2;
+            return (
+              <div
+                key={index}
+                className={columns === 2 ? 'col-span-2' : 'col-span-1'}
+              >
+                <ContentCard noPadding={item.type === 'image'}>
+                  <MediaRenderer item={item} />
+                </ContentCard>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </main>
   );
 }
