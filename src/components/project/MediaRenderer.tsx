@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { MediaItem } from '@/types/project';
 
@@ -7,17 +8,63 @@ interface MediaRendererProps {
   item: MediaItem;
 }
 
+function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: string; caption?: string; fill?: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <figure>
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className={fill
+          ? "block w-full aspect-video object-cover rounded-lg"
+          : "block w-full h-[472px] object-contain rounded-lg"
+        }
+      />
+      {caption && (
+        <figcaption className="text-body-small text-content-secondary mt-3">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 export default function MediaRenderer({ item }: MediaRendererProps) {
   switch (item.type) {
     case 'image':
       return (
-        <figure>
+        <figure className={item.fill ? 'h-full' : ''}>
           <Image
             src={item.src}
             alt={item.alt}
             width={1200}
             height={800}
-            className="block w-full h-auto"
+            className={item.fill ? 'block w-full h-full object-cover' : 'block w-full h-auto'}
             unoptimized
           />
           {item.caption && (
@@ -29,24 +76,7 @@ export default function MediaRenderer({ item }: MediaRendererProps) {
       );
 
     case 'video':
-      return (
-        <figure>
-          <video
-            src={item.src}
-            poster={item.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="block w-full h-[472px] object-contain rounded-lg"
-          />
-          {item.caption && (
-            <figcaption className="text-body-small text-content-secondary mt-3">
-              {item.caption}
-            </figcaption>
-          )}
-        </figure>
-      );
+      return <AutoPlayVideo src={item.src} poster={item.poster} caption={item.caption} fill={item.fill} />;
 
     case 'youtube':
       return (

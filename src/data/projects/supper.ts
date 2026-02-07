@@ -12,10 +12,10 @@ export const supperProject: ProjectData = {
     'We partnered with the founders to take a prompt bar that once struggled to answer "How many employees work here?" into a truly agentic platform capable of deep analysis, understanding custom company jargon, and making sense of even the thorniest databases.',
   ],
   team: [
-    { name: 'Gabriel Valdivia', url: 'https://www.gabrielvaldivia.com/' },
-    { name: 'Lowell Putnam', url: 'https://www.linkedin.com/in/lowell-putnam' },
-    { name: 'Andrew Salamon', url: 'https://www.linkedin.com/in/andysalamon/' },
-    { name: 'Serena Tsay', url: 'https://www.linkedin.com/in/serenatsay' },
+    { name: 'Lowell Putnam', url: 'https://www.linkedin.com/in/lowell-putnam', avatar: '/projects/supper/lowell.jpeg' },
+    { name: 'Andrew Salamon', url: 'https://www.linkedin.com/in/andysalamon/', avatar: '/projects/supper/andrew.jpeg' },
+    { name: 'Serena Tsay', url: 'https://www.linkedin.com/in/serenatsay', avatar: '/projects/supper/serena.jpeg' },
+    { name: 'Gabriel Valdivia', url: 'https://www.gabrielvaldivia.com/', avatar: '/projects/dex/gabe.avif' },
   ],
   duration: '2024—2025',
   gallery: [

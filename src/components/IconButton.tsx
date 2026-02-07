@@ -20,7 +20,7 @@ interface IconButtonAsLink
 type IconButtonProps = IconButtonAsButton | IconButtonAsLink;
 
 export function IconButton({ icon: Icon, className, ...props }: IconButtonProps) {
-  const classes = `w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center ${className ?? ""}`;
+  const classes = `w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center cursor-pointer ${className ?? ""}`;
 
   if ("href" in props && props.href) {
     return (

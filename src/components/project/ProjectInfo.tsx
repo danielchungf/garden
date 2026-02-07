@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { TeamMember } from '@/types/project';
 
 interface ProjectInfoProps {
@@ -51,9 +52,18 @@ export default function ProjectInfo({ title, url, description, team, duration }:
       <div className="grid grid-cols-2 gap-8">
         <div>
           <h3 className="text-h3 text-content-secondary uppercase mb-2">Team</h3>
-          <ul className="space-y-1">
+          <ul className="space-y-2">
             {team.map((member) => (
-              <li key={member.name}>
+              <li key={member.name} className="flex items-center gap-2">
+                {member.avatar && (
+                  <Image
+                    src={member.avatar}
+                    alt={member.name}
+                    width={28}
+                    height={28}
+                    className="rounded-full object-cover w-7 h-7"
+                  />
+                )}
                 {member.url ? (
                   <a
                     href={member.url}
