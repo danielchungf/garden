@@ -7,8 +7,7 @@ export const dexProject: ProjectData = {
   heroVideo: 'https://www.dex.camera/cdn/shop/videos/c/vp/e2a452bc8452493c9e428a85a5fa459a/e2a452bc8452493c9e428a85a5fa459a.HD-1080p-7.2Mbps-65204699.mp4?v=0',
   heroAlt: 'Dex language learning camera interface',
   description: [
-    'Dex turns real-world moments into language lessons for kids. Instead of passive screen time, Dex invites kids to notice the world around them and talk back to it, transforming routines into learning opportunities. The result is a gentle rhythm of daily speaking, listening, and discovery that feels like play but compounds into real progress.',
-    'Dex is shaped like a magnifying glass, with a camera on one side and a screen on the other. Kids take photos of whatever catches their attention, and Dex teaches them how to say it in their family\'s language. From there, it might tell a story about the word or prompt a small activity to help it stick.',
+    'Dex turns real-world moments into language lessons for kids ages 3-8. Instead of passive screen time, Dex invites kids to notice the world around them with curiosity and talk back to it, transforming routines into learning opportunities. The result is a gentle rhythm of daily speaking, listening, and discovery that feels like play but compounds into real progress.',
   ],
   team: [
     { name: 'Reni Cao', avatar: '/projects/dex/reni.avif' },
@@ -20,15 +19,14 @@ export const dexProject: ProjectData = {
   duration: '2025—2026',
   sections: [
     {
-      title: 'Product Photography',
-      body: 'Using Nano Banana Pro by Google, we created a unified visual language for ads, packaging, and the website. The device\'s shape, colors, and proportions stayed consistent while we swapped scenes, families, moods, and settings, so every photo felt real and part of the same world.',
+      title: 'The Language Learning Camera',
+      body: 'Dex is shaped like a magnifying glass, with a camera on one side and a screen on the other. Kids take photos of whatever catches their attention, and Dex teaches them how to say it in their family\'s language. From there, it might tell a story about the word or prompt a small activity to help it stick.',
       media: [
-        { type: 'image', src: '/projects/dex/dex-photos-4.avif', alt: 'Dex product photography', columns: 2, fill: true },
-        { type: 'image', src: '/projects/dex/dex-photos-5.avif', alt: 'Dex photos', columns: 1, fill: true },
-        { type: 'image', src: '/projects/dex/dex-photos-6.avif', alt: 'Dex photos', columns: 1, fill: true },
-        { type: 'image', src: '/projects/dex/dex-photos-3.avif', alt: 'Dex product photography', columns: 2, fill: true },
-        { type: 'image', src: '/projects/dex/dex-photos-1.webp', alt: 'Dex photos', columns: 1, fill: true },
-        { type: 'image', src: '/projects/dex/dex-photos-2.webp', alt: 'Dex photos', columns: 1, fill: true },
+        { type: 'image', src: '/projects/dex/renders-1.webp', alt: 'Dex device render', columns: 2 },
+        { type: 'image', src: '/projects/dex/renders-2.webp', alt: 'Dex device render', columns: 2 },
+        { type: 'video', src: '/projects/dex/flashcard-game1080.mp4', columns: 2, fill: true },
+        { type: 'video', src: '/projects/dex/completed-activity.mp4', columns: 2, fill: true },
+        { type: 'video', src: '/projects/dex/next-day.mp4', columns: 2, fill: true },
       ],
     },
     {
@@ -38,6 +36,18 @@ export const dexProject: ProjectData = {
         { type: 'video', src: '/projects/dex/copilot-dino-studio.mp4', columns: 2 },
         { type: 'image', src: '/projects/dex/copilot-onboarding.webp', alt: 'Copilot onboarding', columns: 2 },
         { type: 'image', src: '/projects/dex/copilot-sheets.avif', alt: 'Copilot sheets', columns: 2 },
+      ],
+    },
+    {
+      title: 'Product Photography',
+      body: 'Using Nano Banana Pro by Google, we created a unified visual language for ads, packaging, and the website. The device\'s shape, colors, and proportions stayed consistent while we swapped scenes, families, moods, and settings, so every photo felt real and part of the same world.',
+      media: [
+        { type: 'image', src: '/projects/dex/dex-photos-4.avif', alt: 'Dex product photography', columns: 2, fill: true },
+        { type: 'image', src: '/projects/dex/dex-photos-5.avif', alt: 'Dex photos', columns: 1, fill: true },
+        { type: 'image', src: '/projects/dex/dex-photos-6.avif', alt: 'Dex photos', columns: 1, fill: true },
+        { type: 'image', src: '/projects/dex/dex-photos-3.avif', alt: 'Dex product photography', columns: 2, fill: true },
+        { type: 'image', src: '/projects/dex/dex-photos-1.webp', alt: 'Dex photos', columns: 1, fill: true },
+        { type: 'image', src: '/projects/dex/dex-photos-2.webp', alt: 'Dex photos', columns: 1, fill: true },
       ],
     },
   ],
