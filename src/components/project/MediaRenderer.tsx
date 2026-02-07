@@ -31,7 +31,7 @@ function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: s
   }, []);
 
   return (
-    <figure>
+    <figure className="overflow-hidden rounded-lg bg-neutral-100">
       <video
         ref={videoRef}
         src={src}
@@ -41,8 +41,8 @@ function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: s
         playsInline
         preload="auto"
         className={fill
-          ? "block w-full h-auto rounded-lg"
-          : "block w-full h-[472px] object-contain rounded-lg"
+          ? "block w-full h-auto"
+          : "block w-full h-[472px] object-contain"
         }
       />
       {caption && (

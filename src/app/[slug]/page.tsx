@@ -39,38 +39,13 @@ export default async function ProjectPage({ params }: PageProps) {
   }
 
   return (
-    <main className="max-w-[660px] mx-auto px-5 py-[120px] flex flex-col">
+    <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px] flex flex-col">
       {/* Back button */}
       <Link href="/">
         <IconButton icon={ArrowLeft} />
       </Link>
 
-      {/* Hero - 80px gap from back button */}
-      <div className="mt-[80px] w-full overflow-hidden rounded-lg bg-neutral-100">
-        {project.heroVideo ? (
-          <video
-            src={project.heroVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="block w-full aspect-video object-cover"
-          />
-        ) : project.heroImage ? (
-          <Image
-            src={project.heroImage}
-            alt={project.heroAlt}
-            width={1920}
-            height={1080}
-            className="block w-full h-auto"
-            unoptimized
-            priority
-          />
-        ) : null}
-      </div>
-
-      {/* Project info - 60px gap from hero */}
+      {/* Project info - 60px gap from back button */}
       <div className="mt-[60px]">
         <h1 className="text-h1 text-content-primary">{project.title}</h1>
 
@@ -113,6 +88,30 @@ export default async function ProjectPage({ params }: PageProps) {
             <p className="text-body-regular text-content-tertiary">{project.duration}</p>
           </div>
         </div>
+        {/* Hero */}
+        <div className="mt-[60px] w-full overflow-hidden rounded-lg bg-neutral-100">
+          {project.heroVideo ? (
+            <video
+              src={project.heroVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="block w-full aspect-video object-cover"
+            />
+          ) : project.heroImage ? (
+            <Image
+              src={project.heroImage}
+              alt={project.heroAlt}
+              width={1920}
+              height={1080}
+              className="block w-full h-auto"
+              unoptimized
+              priority
+            />
+          ) : null}
+        </div>
         <div className="pb-[60px] border-b border-muted" />
       </div>
 
@@ -127,13 +126,14 @@ export default async function ProjectPage({ params }: PageProps) {
 
       {/* Gallery - 80px gap from metadata */}
       {project.gallery.length > 0 && (
-        <div className="mt-[80px] grid grid-cols-2 gap-8">
+        <div className="mt-[80px] grid grid-cols-6 gap-8">
           {project.gallery.map((item, index) => {
             const columns = item.columns ?? 2;
+            const colSpanClass = columns === 2 ? 'col-span-6' : columns === 3 ? 'col-span-2' : 'col-span-3';
             return (
               <div
                 key={index}
-                className={columns === 2 ? 'col-span-2' : 'col-span-1'}
+                className={colSpanClass}
               >
                 <ContentCard noPadding={item.type === 'image' || (item.type === 'video' && item.fill)}>
                   <MediaRenderer item={item} />

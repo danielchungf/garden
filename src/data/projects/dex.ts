@@ -24,9 +24,18 @@ export const dexProject: ProjectData = {
       media: [
         { type: 'image', src: '/projects/dex/renders-1.webp', alt: 'Dex device render', columns: 2 },
         { type: 'image', src: '/projects/dex/renders-2.webp', alt: 'Dex device render', columns: 2 },
-        { type: 'video', src: '/projects/dex/flashcard-game1080.mp4', columns: 2, fill: true },
+        { type: 'image', src: '/projects/dex/camera-1.avif', alt: 'Dex camera in use', columns: 3, fill: true, noBorder: true },
+        { type: 'image', src: '/projects/dex/camera-3.avif', alt: 'Dex camera in use', columns: 3, fill: true, noBorder: true },
+        { type: 'image', src: '/projects/dex/camera-2.avif', alt: 'Dex camera in use', columns: 3, fill: true, noBorder: true },
+      ],
+    },
+    {
+      title: 'Activities: Stories, Games, Scavenger Hunts',
+      body: 'Each day, new language learning activities unlock to complement the free-camera exploration, and completed ones are saved to a library. Kids engage in interactive stories that let them choose their path by saying words out loud, and practice previously learned words with flashcard games. Some activities involve scavenger hunts, shaking the device, and even dancing.',
+      media: [
         { type: 'video', src: '/projects/dex/completed-activity.mp4', columns: 2, fill: true },
         { type: 'video', src: '/projects/dex/next-day.mp4', columns: 2, fill: true },
+        { type: 'video', src: '/projects/dex/flashcard-game1080.mp4', columns: 2, fill: true },
       ],
     },
     {
@@ -45,9 +54,20 @@ export const dexProject: ProjectData = {
         { type: 'image', src: '/projects/dex/dex-photos-4.avif', alt: 'Dex product photography', columns: 2, fill: true },
         { type: 'image', src: '/projects/dex/dex-photos-5.avif', alt: 'Dex photos', columns: 1, fill: true },
         { type: 'image', src: '/projects/dex/dex-photos-6.avif', alt: 'Dex photos', columns: 1, fill: true },
+        { type: 'image', src: '/projects/dex/dex-photos-8.avif', alt: 'Dex photos', columns: 1, fill: true, noBorder: true },
+        { type: 'image', src: '/projects/dex/dex-photos-7.avif', alt: 'Dex photos', columns: 1, fill: true, noBorder: true },
         { type: 'image', src: '/projects/dex/dex-photos-3.avif', alt: 'Dex product photography', columns: 2, fill: true },
         { type: 'image', src: '/projects/dex/dex-photos-1.webp', alt: 'Dex photos', columns: 1, fill: true },
         { type: 'image', src: '/projects/dex/dex-photos-2.webp', alt: 'Dex photos', columns: 1, fill: true },
+      ],
+    },
+    {
+      title: 'Marketing Website',
+      body: '',
+      media: [
+        { type: 'video', src: '/projects/dex/site-hero720.mp4', columns: 2, fill: true, noBorder: true },
+        { type: 'image', src: '/projects/dex/site-pdp-hero.avif', alt: 'Dex marketing website hero', columns: 2, fill: true, noBorder: false },
+        { type: 'image', src: '/projects/dex/side-pdp-tech.avif', alt: 'Dex marketing website tech', columns: 2, fill: true, noBorder: true },
       ],
     },
   ],
