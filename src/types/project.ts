@@ -3,7 +3,8 @@ export type MediaItem =
   | { type: 'image'; src: string; alt: string; caption?: string; columns?: 1 | 2 | 3; fill?: boolean; noBorder?: boolean }
   | { type: 'video'; src: string; poster?: string; caption?: string; columns?: 1 | 2 | 3; fill?: boolean; noBorder?: boolean }
   | { type: 'youtube'; videoId: string; caption?: string; columns?: 1 | 2 | 3 }
-  | { type: 'vimeo'; videoId: string; caption?: string; columns?: 1 | 2 | 3 };
+  | { type: 'vimeo'; videoId: string; caption?: string; columns?: 1 | 2 | 3 }
+  | { type: 'description'; text: string };
 
 export interface TeamMember {
   name: string;

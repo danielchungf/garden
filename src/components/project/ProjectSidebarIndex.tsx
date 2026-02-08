@@ -65,7 +65,7 @@ export default function ProjectSidebarIndex({ projectTitle, sections }: ProjectS
     >
       <Link
         href="/"
-        className="flex items-center gap-2 mb-8 text-h3 text-content-tertiary hover:text-content-secondary transition-colors"
+        className="flex items-center gap-2 mb-8 text-h3 text-content-muted hover:text-content-primary transition-colors"
       >
         <ArrowLeft size={14} />
         <span>Index</span>

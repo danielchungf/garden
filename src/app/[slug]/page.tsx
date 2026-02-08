@@ -90,29 +90,31 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
         </div>
         {/* Hero */}
-        <div className="mt-[60px] w-full overflow-hidden rounded-lg bg-neutral-100">
-          {project.heroVideo ? (
-            <video
-              src={project.heroVideo}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              className="block w-full aspect-video object-cover"
-            />
-          ) : project.heroImage ? (
-            <Image
-              src={project.heroImage}
-              alt={project.heroAlt}
-              width={1920}
-              height={1080}
-              className="block w-full h-auto"
-              unoptimized
-              priority
-            />
-          ) : null}
-        </div>
+        {(project.heroVideo || project.heroImage) && (
+          <div className="mt-[60px] w-full overflow-hidden rounded-lg bg-neutral-100">
+            {project.heroVideo ? (
+              <video
+                src={project.heroVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="block w-full aspect-video object-cover"
+              />
+            ) : project.heroImage ? (
+              <Image
+                src={project.heroImage}
+                alt={project.heroAlt}
+                width={1920}
+                height={1080}
+                className="block w-full h-auto"
+                unoptimized
+                priority
+              />
+            ) : null}
+          </div>
+        )}
         <div className="pb-[60px] border-b border-muted" />
       </div>
 
@@ -130,18 +132,31 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Gallery - 80px gap from metadata */}
+      {/* Divider between sections and gallery */}
+      {project.sections && project.sections.length > 0 && project.gallery.length > 0 && (
+        <div className="mt-[60px] border-b border-muted" />
+      )}
+
+      {/* Gallery */}
       {project.gallery.length > 0 && (
-        <div className="mt-[80px] grid grid-cols-6 gap-8">
+        <div className="mt-[60px] grid grid-cols-6 gap-8">
           {project.gallery.map((item, index) => {
+            if (item.type === 'description') {
+              return (
+                <div key={index} className="col-span-6 -mt-[20px]">
+                  <MediaRenderer item={item} />
+                </div>
+              );
+            }
             const columns = item.columns ?? 2;
             const colSpanClass = columns === 2 ? 'col-span-6' : columns === 3 ? 'col-span-2' : 'col-span-3';
+            const hasNoBorder = 'noBorder' in item ? !!item.noBorder : false;
             return (
               <div
                 key={index}
                 className={colSpanClass}
               >
-                <ContentCard noPadding={item.type === 'image' || (item.type === 'video' && item.fill)}>
+                <ContentCard noPadding={item.type === 'image' || (item.type === 'video' && item.fill)} noBorder={hasNoBorder}>
                   <MediaRenderer item={item} />
                 </ContentCard>
               </div>
