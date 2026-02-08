@@ -74,9 +74,13 @@
   .text-content-primary { color: theme(colors.neutral.800); }
   .text-content-secondary { color: theme(colors.neutral.600); }
   .text-content-tertiary { color: theme(colors.neutral.500); }
+  .text-content-muted { color: theme(colors.neutral.400); }
   .text-content-accent { color: #FF591E; }
+  .hover\:text-content-primary:hover { color: theme(colors.neutral.800); }
   .hover\:text-content-accent:hover { color: #FF591E; }
   .border-muted { border-color: theme(colors.neutral.150); }
+  .decoration-muted { text-decoration-color: theme(colors.neutral.300); }
+  .hover\:decoration-content-primary:hover { text-decoration-color: theme(colors.neutral.800); }
   .bg-page { background-color: theme(colors.neutral.50); }
 }
 
@@ -91,6 +95,13 @@
 }
 
 /* Typography tokens */
+.text-hero {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  line-height: 32px;
+}
 .text-h1 {
   font-family: var(--font-inter), sans-serif;
   font-weight: 450;
@@ -104,6 +115,13 @@
   font-size: 16px;
   letter-spacing: -0.02em;
   line-height: 24px;
+}
+.text-h3 {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 460;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 18px;
 }
 .text-body-regular {
   font-family: var(--font-inter), sans-serif;

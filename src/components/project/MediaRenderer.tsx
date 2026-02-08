@@ -31,7 +31,7 @@ function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: s
   }, []);
 
   return (
-    <figure className="overflow-hidden rounded-lg bg-neutral-100">
+    <figure className="overflow-hidden rounded-lg bg-white">
       <video
         ref={videoRef}
         src={src}

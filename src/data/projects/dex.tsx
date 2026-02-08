@@ -19,7 +19,7 @@ export const dexProject: ProjectData = {
   duration: '2025—2026',
   sections: [
     {
-      title: 'The Language Learning Camera',
+      title: 'The language learning camera',
       body: 'Dex is shaped like a magnifying glass, with a camera on one side and a screen on the other. Kids take photos of whatever catches their attention, and Dex teaches them how to say it in their family\'s language. From there, it might tell a story about the word or prompt a small activity to help it stick.',
       media: [
         { type: 'image', src: '/projects/dex/renders-1.webp', alt: 'Dex device render', columns: 2 },
@@ -30,7 +30,7 @@ export const dexProject: ProjectData = {
       ],
     },
     {
-      title: 'Activities: Stories, Games, Scavenger Hunts',
+      title: 'Device activities',
       body: 'Each day, new language learning activities unlock to complement the free-camera exploration, and completed ones are saved to a library. Kids engage in interactive stories that let them choose their path by saying words out loud, and practice previously learned words with flashcard games. Some activities involve scavenger hunts, shaking the device, and even dancing.',
       media: [
         { type: 'video', src: '/projects/dex/completed-activity.mp4', columns: 2, fill: true },
@@ -39,7 +39,7 @@ export const dexProject: ProjectData = {
       ],
     },
     {
-      title: 'Parent Copilot App',
+      title: 'Parent copilot app',
       body: 'Dex includes a parent app that gives families visibility into their kid\'s progress without interrupting independent play. The app needed to echo the playful tone kids recognize without feeling childish for parents. We built a design system with characters and visual language that carries across both the device and the app.',
       media: [
         { type: 'video', src: '/projects/dex/copilot-dino-studio.mp4', columns: 2 },
@@ -48,7 +48,7 @@ export const dexProject: ProjectData = {
       ],
     },
     {
-      title: 'Product Photography',
+      title: 'Product photography',
       body: 'Using Nano Banana Pro by Google, we created a unified visual language for ads, packaging, and the website. The device\'s shape, colors, and proportions stayed consistent while we swapped scenes, families, moods, and settings, so every photo felt real and part of the same world.',
       media: [
         { type: 'image', src: '/projects/dex/dex-photos-4.avif', alt: 'Dex product photography', columns: 2, fill: true },
@@ -62,8 +62,16 @@ export const dexProject: ProjectData = {
       ],
     },
     {
-      title: 'Marketing Website',
-      body: '',
+      title: 'Character design',
+      body: <>We partnered with <a href="https://thelittlelabs.com" target="_blank" rel="noopener noreferrer" className="text-content-tertiary underline underline-offset-[3px] decoration-muted hover:text-content-primary hover:decoration-content-primary">The Little Labs</a> to bring the device&apos;s character to life. Dex, the elephant, is both a guide and a friend, present in all activities, from vocabulary practice to starring as the protagonist in some stories. I then expanded the library with dozens of poses and scenes so Dex could adapt to all types of states.</>,
+      media: [
+        { type: 'image', src: '/projects/dex/character-components.avif', alt: 'Dex character components', columns: 2, fill: true, noBorder: false },
+        { type: 'image', src: '/projects/dex/character-library.avif', alt: 'Dex character library', columns: 2, fill: true, noBorder: false },
+      ],
+    },
+    {
+      title: 'Marketing website',
+      body: <>As a new kids&apos; hardware company in an uncharted category, the <a href="https://www.dex.camera/" target="_blank" rel="noopener noreferrer" className="text-content-tertiary underline underline-offset-[3px] decoration-muted hover:text-content-primary hover:decoration-content-primary">website</a> needed to convey authenticity, trustworthiness, and safety. We leaned on high-quality promotional videos and a &apos;show before tell&apos; philosophy.</>,
       media: [
         { type: 'video', src: '/projects/dex/site-hero720.mp4', columns: 2, fill: true, noBorder: true },
         { type: 'image', src: '/projects/dex/site-pdp-hero.avif', alt: 'Dex marketing website hero', columns: 2, fill: true, noBorder: false },

@@ -13,7 +13,7 @@ export interface TeamMember {
 
 export interface ProjectSection {
   title: string;
-  body: string;
+  body: React.ReactNode;
   media?: MediaItem[];
 }
 
