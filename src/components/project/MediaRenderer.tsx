@@ -2,10 +2,15 @@
 
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Hls from 'hls.js';
 import { MediaItem } from '@/types/project';
 
 interface MediaRendererProps {
   item: MediaItem;
+}
+
+function isHlsSource(src: string) {
+  return src.includes('.m3u8');
 }
 
 function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: string; caption?: string; fill?: boolean }) {
@@ -14,6 +19,19 @@ function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: s
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    let hls: Hls | null = null;
+
+    if (isHlsSource(src)) {
+      if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari native HLS
+        video.src = src;
+      }
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -27,14 +45,19 @@ function AutoPlayVideo({ src, poster, caption, fill }: { src: string; poster?: s
     );
 
     observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.disconnect();
+      if (hls) {
+        hls.destroy();
+      }
+    };
+  }, [src]);
 
   return (
     <figure className="overflow-hidden rounded-lg bg-white">
       <video
         ref={videoRef}
-        src={src}
+        src={isHlsSource(src) ? undefined : src}
         poster={poster}
         muted
         loop
@@ -118,6 +141,13 @@ export default function MediaRenderer({ item }: MediaRendererProps) {
             </figcaption>
           )}
         </figure>
+      );
+
+    case 'description':
+      return (
+        <p className="text-h3 text-content-muted py-3 text-center">
+          {item.text}
+        </p>
       );
 
     default:

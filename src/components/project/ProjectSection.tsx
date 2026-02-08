@@ -17,6 +17,13 @@ export default function ProjectSection({ id, title, body, media }: ProjectSectio
       {media && media.length > 0 && (
         <div className="mt-8 grid grid-cols-6 gap-3">
           {media.map((item, index) => {
+            if (item.type === 'description') {
+              return (
+                <div key={index} className="col-span-6">
+                  <MediaRenderer item={item} />
+                </div>
+              );
+            }
             const columns = item.columns ?? 2;
             const colSpanClass = columns === 2 ? 'col-span-6' : columns === 3 ? 'col-span-2' : 'col-span-3';
             const hasNoBorder = 'noBorder' in item ? !!item.noBorder : (item.type === 'image' && item.fill);

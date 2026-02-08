@@ -11,7 +11,14 @@ export default function ProjectGallery({ items }: ProjectGalleryProps) {
   return (
     <div className="grid grid-cols-6 gap-5">
       {items.map((item, index) => {
-        const columns = item.columns ?? 2; // Default to full width
+        if (item.type === 'description') {
+          return (
+            <div key={index} className="col-span-6 -mt-[8px]">
+              <MediaRenderer item={item} />
+            </div>
+          );
+        }
+        const columns = item.columns ?? 2;
         const colSpanClass = columns === 2 ? 'col-span-6' : columns === 3 ? 'col-span-2' : 'col-span-3';
         return (
           <div
