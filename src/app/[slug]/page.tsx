@@ -7,6 +7,7 @@ import { IconButton } from '@/components/IconButton';
 import MediaRenderer from '@/components/project/MediaRenderer';
 import ContentCard from '@/components/project/ContentCard';
 import ProjectSection from '@/components/project/ProjectSection';
+import ProjectSidebarIndex from '@/components/project/ProjectSidebarIndex';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -40,14 +41,14 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px] flex flex-col">
-      {/* Back button */}
-      <Link href="/">
+      {/* Back button - hidden on wide viewports where sidebar index has its own */}
+      <Link href="/" className="xl:hidden">
         <IconButton icon={ArrowLeft} />
       </Link>
 
       {/* Project info - 60px gap from back button */}
-      <div className="mt-[60px]">
-        <h1 className="text-h1 text-content-primary">{project.title}</h1>
+      <div id="project-info" className="mt-[60px] scroll-mt-20">
+        <h1 className="text-hero text-content-primary">{project.title}</h1>
 
         {/* Description - 12px gap from title */}
         <div className="mt-3 space-y-4">
@@ -115,11 +116,16 @@ export default async function ProjectPage({ params }: PageProps) {
         <div className="pb-[60px] border-b border-muted" />
       </div>
 
+      {/* Sidebar Index */}
+      {project.sections && project.sections.length > 0 && (
+        <ProjectSidebarIndex projectTitle={project.title} sections={project.sections.map(s => ({ title: s.title }))} />
+      )}
+
       {/* Sections */}
       {project.sections && project.sections.length > 0 && (
         <div className="mt-[60px] flex flex-col gap-[60px]">
           {project.sections.map((section, index) => (
-            <ProjectSection key={index} title={section.title} body={section.body} media={section.media} />
+            <ProjectSection key={index} id={`section-${index}`} title={section.title} body={section.body} media={section.media} />
           ))}
         </div>
       )}

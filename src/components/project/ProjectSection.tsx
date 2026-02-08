@@ -3,14 +3,15 @@ import MediaRenderer from './MediaRenderer';
 import ContentCard from './ContentCard';
 
 interface ProjectSectionProps {
+  id?: string;
   title: string;
-  body: string;
+  body: React.ReactNode;
   media?: MediaItem[];
 }
 
-export default function ProjectSection({ title, body, media }: ProjectSectionProps) {
+export default function ProjectSection({ id, title, body, media }: ProjectSectionProps) {
   return (
-    <div>
+    <div id={id} className="scroll-mt-20">
       <h2 className="text-h2 text-content-primary mb-3">{title}</h2>
       <p className="text-body-regular text-content-tertiary">{body}</p>
       {media && media.length > 0 && (

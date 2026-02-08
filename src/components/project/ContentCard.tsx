@@ -11,7 +11,7 @@ interface ContentCardProps {
 
 export default function ContentCard({ children, noPadding, noBorder, className }: ContentCardProps) {
   return (
-    <div className={`${noBorder ? '' : 'rounded-lg overflow-hidden bg-white border border-muted'} ${noPadding ? '' : 'p-7'} ${className ?? ''}`}>
+    <div className={`rounded-[8px] overflow-hidden bg-white ${noBorder ? '' : 'border border-muted'} ${noPadding ? '' : 'p-7'} ${className ?? ''}`}>
       {children}
     </div>
   );
