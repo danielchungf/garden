@@ -12,7 +12,7 @@ interface ProjectSidebarIndexProps {
 export default function ProjectSidebarIndex({ projectTitle, sections }: ProjectSidebarIndexProps) {
   const [activeSection, setActiveSection] = useState<string>('project-info');
   const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout>();
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const projectInfo = document.getElementById('project-info');
