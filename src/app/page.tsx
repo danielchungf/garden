@@ -88,17 +88,38 @@ export default function Home() {
           <div>
             <h1 className="text-h1 text-content-primary">Daniel Chung</h1>
             <p className="text-h2 text-content-secondary">
-              Product Designer for Early-Stage Teams
+              Designer in Residence at{" "}
+              <a
+                href="https://www.gabrielvaldivia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-content-primary transition-colors"
+              >
+                Valdivia Works
+              </a>
             </p>
           </div>
         </div>
 
         <p className="text-body-regular text-content-tertiary">
-          I design and build products that transform how we live. I focus on
-          quality, empathy, and curiosity. I create products that feel like
-          someone truly cared, that make us more human, and that keep us
-          learning. I build tools that bring joy to everyday moments.
+          I partner with early-stage teams to build software that transform
+          how we live, guided by quality, empathy, and curiosity. My aim is to
+          create digital products that feel deeply considered, make us more
+          human, and keep us learning.
         </p>
+
+        <div className="flex gap-3 mt-8">
+          <IconButton
+            icon={Mail}
+            href="mailto:danielchungfung@gmail.com"
+          />
+          <IconButton
+            icon={Twitter}
+            href="https://x.com/itsdanielchung"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </div>
       </section>
 
       {/* Work */}
@@ -190,22 +211,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social */}
-      <section>
-        <h2 className="text-h2 text-content-primary mb-5">Reach me</h2>
-        <div className="flex gap-3">
-          <IconButton
-            icon={Mail}
-            href="mailto:danielchungfung@gmail.com"
-          />
-          <IconButton
-            icon={Twitter}
-            href="https://x.com/itsdanielchung"
-            target="_blank"
-            rel="noopener noreferrer"
-          />
-        </div>
-      </section>
     </main>
   );
 }
