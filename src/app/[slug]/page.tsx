@@ -66,7 +66,21 @@ export default async function ProjectPage({ params }: PageProps) {
             <div className="flex gap-1">
               {project.team.map((member) => (
                 <div key={member.name} className="relative group">
-                  {member.avatar ? (
+                  {member.url ? (
+                    <a href={member.url} target="_blank" rel="noopener noreferrer">
+                      {member.avatar ? (
+                        <Image
+                          src={member.avatar}
+                          alt={member.name}
+                          width={64}
+                          height={64}
+                          className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                        />
+                      ) : (
+                        <div className="w-8 h-8 rounded-full bg-neutral-200 border-2 border-white" />
+                      )}
+                    </a>
+                  ) : member.avatar ? (
                     <Image
                       src={member.avatar}
                       alt={member.name}
@@ -143,7 +157,7 @@ export default async function ProjectPage({ params }: PageProps) {
           {project.gallery.map((item, index) => {
             if (item.type === 'description') {
               return (
-                <div key={index} className="col-span-6 -mt-[20px]">
+                <div key={index} className="col-span-6 -mt-4">
                   <MediaRenderer item={item} />
                 </div>
               );
