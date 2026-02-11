@@ -10,8 +10,11 @@ interface ProjectSectionProps {
 }
 
 // Group media items: each card (image/video/etc.) optionally followed by a description
+type CardItem = Exclude<MediaItem, { type: 'description' }>;
+type DescriptionItem = Extract<MediaItem, { type: 'description' }>;
+
 function groupMedia(media: MediaItem[]) {
-  const groups: { item: MediaItem; description?: MediaItem }[] = [];
+  const groups: { item: CardItem; description?: DescriptionItem }[] = [];
   for (let i = 0; i < media.length; i++) {
     const item = media[i];
     if (item.type === 'description') continue; // handled as part of previous group
