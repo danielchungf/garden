@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { getProjectBySlug, getAllProjectSlugs } from '@/data/projects';
 import { IconButton } from '@/components/IconButton';
-import MediaRenderer from '@/components/project/MediaRenderer';
-import ContentCard from '@/components/project/ContentCard';
 import ProjectSection from '@/components/project/ProjectSection';
 import ProjectSidebarIndex from '@/components/project/ProjectSidebarIndex';
+import ProjectGallery from '@/components/project/ProjectGallery';
+import { LightboxProvider } from '@/components/project/Lightbox';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -60,12 +60,12 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
 
         {/* Metadata - 32px gap from description */}
-        <div className="mt-8 grid grid-cols-2 gap-8">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
           <div>
             <h3 className="text-h2 text-content-primary mb-3">Team</h3>
-            <div className="flex gap-1">
+            <div className="flex gap-2">
               {project.team.map((member) => (
-                <div key={member.name} className="relative group">
+                <div key={member.name} className={`${member.hideOnMobile ? 'hidden sm:block' : ''} relative group`}>
                   {member.url ? (
                     <a href={member.url} target="_blank" rel="noopener noreferrer">
                       {member.avatar ? (
@@ -74,10 +74,10 @@ export default async function ProjectPage({ params }: PageProps) {
                           alt={member.name}
                           width={64}
                           height={64}
-                          className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                          className="w-8 h-8 rounded-full object-cover"
                         />
                       ) : (
-                        <div className="w-8 h-8 rounded-full bg-neutral-200 border-2 border-white" />
+                        <div className="w-8 h-8 rounded-full bg-neutral-200" />
                       )}
                     </a>
                   ) : member.avatar ? (
@@ -86,10 +86,10 @@ export default async function ProjectPage({ params }: PageProps) {
                       alt={member.name}
                       width={64}
                       height={64}
-                      className="w-8 h-8 rounded-full object-cover border-2 border-white"
+                      className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-neutral-200 border-2 border-white" />
+                    <div className="w-8 h-8 rounded-full bg-neutral-200" />
                   )}
                   <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
                     {member.name}
@@ -137,47 +137,26 @@ export default async function ProjectPage({ params }: PageProps) {
         <ProjectSidebarIndex projectTitle={project.title} sections={project.sections.map(s => ({ title: s.title }))} />
       )}
 
-      {/* Sections */}
-      {project.sections && project.sections.length > 0 && (
-        <div className="mt-[60px] flex flex-col gap-[60px]">
-          {project.sections.map((section, index) => (
-            <ProjectSection key={index} id={`section-${index}`} title={section.title} body={section.body} media={section.media} />
-          ))}
-        </div>
-      )}
+      <LightboxProvider>
+        {/* Sections */}
+        {project.sections && project.sections.length > 0 && (
+          <div className="mt-[60px] flex flex-col gap-[60px]">
+            {project.sections.map((section, index) => (
+              <ProjectSection key={index} id={`section-${index}`} title={section.title} body={section.body} media={section.media} />
+            ))}
+          </div>
+        )}
 
-      {/* Divider between sections and gallery */}
-      {project.sections && project.sections.length > 0 && project.gallery.length > 0 && (
-        <div className="mt-[60px] border-b border-muted" />
-      )}
+        {/* Divider between sections and gallery */}
+        {project.sections && project.sections.length > 0 && project.gallery.length > 0 && (
+          <div className="mt-[60px] border-b border-muted" />
+        )}
 
-      {/* Gallery */}
-      {project.gallery.length > 0 && (
-        <div className="mt-[60px] grid grid-cols-6 gap-8">
-          {project.gallery.map((item, index) => {
-            if (item.type === 'description') {
-              return (
-                <div key={index} className="col-span-6 -mt-4">
-                  <MediaRenderer item={item} />
-                </div>
-              );
-            }
-            const columns = item.columns ?? 2;
-            const colSpanClass = columns === 2 ? 'col-span-6' : columns === 3 ? 'col-span-2' : 'col-span-3';
-            const hasNoBorder = 'noBorder' in item ? !!item.noBorder : false;
-            return (
-              <div
-                key={index}
-                className={colSpanClass}
-              >
-                <ContentCard noPadding={item.type === 'image' || (item.type === 'video' && item.fill)} noBorder={hasNoBorder}>
-                  <MediaRenderer item={item} />
-                </ContentCard>
-              </div>
-            );
-          })}
-        </div>
-      )}
+        {/* Gallery */}
+        {project.gallery.length > 0 && (
+          <ProjectGallery items={project.gallery} />
+        )}
+      </LightboxProvider>
     </main>
   );
 }
