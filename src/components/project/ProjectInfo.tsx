@@ -55,7 +55,17 @@ export default function ProjectInfo({ title, url, description, team, duration }:
           <ul className="space-y-2">
             {team.map((member) => (
               <li key={member.name} className="flex items-center gap-2">
-                {member.avatar && (
+                {member.avatar && member.url ? (
+                  <a href={member.url} target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={member.avatar}
+                      alt={member.name}
+                      width={28}
+                      height={28}
+                      className="rounded-full object-cover w-7 h-7"
+                    />
+                  </a>
+                ) : member.avatar ? (
                   <Image
                     src={member.avatar}
                     alt={member.name}
@@ -63,7 +73,7 @@ export default function ProjectInfo({ title, url, description, team, duration }:
                     height={28}
                     className="rounded-full object-cover w-7 h-7"
                   />
-                )}
+                ) : null}
                 {member.url ? (
                   <a
                     href={member.url}

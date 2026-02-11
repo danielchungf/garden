@@ -145,7 +145,7 @@ export default function MediaRenderer({ item }: MediaRendererProps) {
 
     case 'description':
       return (
-        <p className="text-h3 text-content-muted py-3 text-center">
+        <p className="text-h3 text-content-muted text-center">
           {item.text}
         </p>
       );

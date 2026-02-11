@@ -10,11 +10,11 @@ export const dexProject: ProjectData = {
     'Dex turns real-world moments into language lessons for kids ages 3-8. Instead of passive screen time, Dex invites kids to notice the world around them with curiosity and talk back to it, transforming routines into learning opportunities. The result is a gentle rhythm of daily speaking, listening, and discovery that feels like play but compounds into real progress.',
   ],
   team: [
-    { name: 'Reni Cao', avatar: '/projects/dex/reni.avif' },
-    { name: 'Charlie Zhang', avatar: '/projects/dex/charlie.avif' },
-    { name: 'Susan Rosenthal', avatar: '/projects/dex/susan.avif' },
-    { name: 'Aparna Dixit', avatar: '/projects/dex/aparna.avif' },
-    { name: 'Gabriel Valdivia', avatar: '/projects/dex/gabe.avif' },
+    { name: 'Reni Cao', url: 'https://www.linkedin.com/in/renicao/', avatar: '/projects/dex/reni.avif' },
+    { name: 'Charlie Zhang', url: 'https://www.linkedin.com/in/charliezhang89/', avatar: '/projects/dex/charlie.avif' },
+    { name: 'Susan Rosenthal', url: 'https://www.linkedin.com/in/susan-rosenthal-yang-bbb1b746/', avatar: '/projects/dex/susan.avif' },
+    { name: 'Aparna Dixit', url: 'https://www.linkedin.com/in/aparnavdixit/', avatar: '/projects/dex/aparna.avif' },
+    { name: 'Gabriel Valdivia', url: 'https://www.gabrielvaldivia.com/', avatar: '/projects/dex/gabe.avif' },
   ],
   duration: '2025—2026',
   sections: [
