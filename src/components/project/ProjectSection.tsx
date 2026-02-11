@@ -1,6 +1,9 @@
+'use client';
+
 import { MediaItem } from '@/types/project';
 import MediaRenderer from './MediaRenderer';
 import ContentCard from './ContentCard';
+import { useLightbox } from './Lightbox';
 
 interface ProjectSectionProps {
   id?: string;
@@ -30,6 +33,8 @@ function groupMedia(media: MediaItem[]) {
 }
 
 export default function ProjectSection({ id, title, body, media }: ProjectSectionProps) {
+  const { open } = useLightbox();
+
   return (
     <div id={id} className="scroll-mt-20">
       <h2 className="text-h2 text-content-primary mb-3">{title}</h2>
@@ -47,6 +52,7 @@ export default function ProjectSection({ id, title, body, media }: ProjectSectio
                   noPadding={item.type === 'image' || (item.type === 'video' && item.fill)}
                   noBorder={hasNoBorder}
                   className={`${item.type === 'image' && !item.fill ? 'py-6 px-2' : ''} ${item.type === 'image' && item.fill && !description ? 'h-full' : ''}`}
+                  onClick={() => open(item)}
                 >
                   <MediaRenderer item={item} />
                 </ContentCard>

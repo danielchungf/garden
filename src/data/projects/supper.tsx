@@ -15,7 +15,7 @@ export const supperProject: ProjectData = {
     { name: 'Andrew Salamon', url: 'https://www.linkedin.com/in/andysalamon/', avatar: '/projects/supper/andrew.jpeg' },
     { name: 'Serena Tsay', url: 'https://www.linkedin.com/in/serenatsay', avatar: '/projects/supper/serena.jpeg' },
     { name: 'Nitzan Israel', url: 'https://www.linkedin.com/in/nitzan-israel-b81748172/', avatar: '/projects/supper/nitzan.avif' },
-    { name: 'Aziz Hasan', url: 'https://www.linkedin.com/in/azizhasan/', avatar: '/projects/supper/aziz.avif' },
+    { name: 'Aziz Hasan', url: 'https://www.linkedin.com/in/azizhasan/', avatar: '/projects/supper/aziz.avif', hideOnMobile: true },
     { name: 'Gabriel Valdivia', url: 'https://www.gabrielvaldivia.com/', avatar: '/projects/dex/gabe.avif' },
   ],
   duration: '2024—2025',

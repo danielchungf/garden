@@ -10,6 +10,7 @@ export interface TeamMember {
   name: string;
   url?: string;
   avatar?: string;
+  hideOnMobile?: boolean;
 }
 
 export interface ProjectSection {

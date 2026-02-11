@@ -88,7 +88,7 @@ export default function Home() {
           <div>
             <h1 className="text-h1 text-content-primary">Daniel Chung</h1>
             <p className="text-h2 text-content-secondary">
-              Designer in Residence at{" "}
+              Designer in Residence at<br className="sm:hidden" />{" "}
               <a
                 href="https://www.gabrielvaldivia.com"
                 target="_blank"
