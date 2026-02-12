@@ -63,7 +63,7 @@ export const dexProject: ProjectData = {
     },
     {
       title: 'Character design',
-      body: <>We partnered with <a href="https://thelittlelabs.com" target="_blank" rel="noopener noreferrer" className="text-content-tertiary underline underline-offset-[3px] decoration-muted hover:text-content-primary hover:decoration-content-primary">The Little Labs</a> to bring the device&apos;s character to life. Dex, the elephant, is both a guide and a friend, present in all activities, from vocabulary practice to starring as the protagonist in some stories. I then expanded the library with dozens of poses and scenes so Dex could adapt to all types of states.</>,
+      body: <>We partnered with <a href="https://thelittlelabs.com" target="_blank" rel="noopener noreferrer" className="text-content-tertiary underline underline-offset-[3px] decoration-muted hover:text-content-primary hover:decoration-content-primary">The Little Labs</a> to bring the device&apos;s character to life. Dex, the elephant, is present in all activities, from vocabulary practice to starring as the protagonist in some stories. I then expanded the library with dozens of poses and scenes so Dex could adapt to all types of states.</>,
       media: [
         { type: 'image', src: '/projects/dex/character-components.avif', alt: 'Dex character components', columns: 2, fill: true, noBorder: false },
         { type: 'image', src: '/projects/dex/character-library.avif', alt: 'Dex character library', columns: 2, fill: true, noBorder: false },
