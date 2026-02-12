@@ -9,7 +9,7 @@ const workProjects = [
     slug: "dex",
     name: "Dex",
     tagline: "The Language Learning Camera",
-    image: "/dex-mini.webp",
+    image: "/dex-mini-logo.webp",
   },
   {
     slug: "supper",
