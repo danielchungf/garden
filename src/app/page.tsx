@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Twitter } from "lucide-react";
+import { ArrowRight, Mail, Twitter } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -209,6 +209,18 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Writing */}
+      <section>
+        <h2 className="text-h2 text-content-primary mb-5">Writing</h2>
+        <Link
+          href="/writing"
+          className="flex items-center gap-2 text-body-regular text-content-tertiary hover:text-content-primary transition-colors"
+        >
+          Read my writing
+          <ArrowRight size={16} />
+        </Link>
       </section>
 
     </main>
