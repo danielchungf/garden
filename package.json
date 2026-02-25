@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "[ -L content/writing ] || (rm -rf content/writing && ln -s ~/Documents/_notes/writing content/writing)"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
