@@ -2,7 +2,48 @@
 
 import { motion, LayoutGroup } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import Image from "next/image";
+import {
+  NotebookPen,
+  NotepadText,
+  Heart,
+  Zap,
+  CircleUserRound,
+  Rocket,
+  Target,
+  HeartPulse,
+} from "lucide-react";
 import type { LogDay } from "@/lib/logs";
+
+const ENTRY_ICONS: Record<string, React.ReactNode> = {
+  "wrote a piece": <NotebookPen size={20} />,
+  "logged work digest": <NotepadText size={20} />,
+  "wrote in journal": <Heart size={20} />,
+  "captured a thought": <Zap size={20} />,
+  "added": <CircleUserRound size={20} />,
+  "registered a project": <Rocket size={20} />,
+  "updated": <Target size={20} />,
+  "logged health check": <HeartPulse size={20} />,
+};
+
+const BRANDED_ICONS: Record<string, string> = {
+  "contributed to": "/github-logo.svg",
+  "bookmarked": "/shiori-logo.png",
+  "held a meeting": "/granola-logo.svg",
+  "spoke to": "/monologue-logo.png",
+};
+
+function getEntryIcon(text: string): React.ReactNode | null {
+  const lower = text.toLowerCase();
+  for (const [key, icon] of Object.entries(ENTRY_ICONS)) {
+    if (lower.includes(key)) return <span className="text-content-muted">{icon}</span>;
+  }
+  for (const [key, src] of Object.entries(BRANDED_ICONS)) {
+    if (lower.includes(key))
+      return <Image src={src} width={20} height={20} alt={key} />;
+  }
+  return null;
+}
 
 const ANIMATE_COUNT = 5;
 const TYPEWRITER_SPEED = 20;
@@ -281,11 +322,12 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
             );
           }
 
+          const icon = getEntryIcon(item.text);
           return (
-            <motion.p
+            <motion.div
               key={item.key}
               layout="position"
-              className="text-body-regular mb-1"
+              className="flex items-start gap-2 mb-2"
               initial={{ opacity: 0, y: item.isNew ? 0 : 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -294,15 +336,18 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
                 layout: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
               }}
             >
-              {item.isTyping ? (
-                <TypewriterText
-                  text={item.text}
-                  onComplete={handleTypingComplete}
-                />
-              ) : (
-                <EntryText text={item.text} />
-              )}
-            </motion.p>
+              {icon && <span className="flex-shrink-0 mt-[2px]">{icon}</span>}
+              <p className="text-body-regular">
+                {item.isTyping ? (
+                  <TypewriterText
+                    text={item.text}
+                    onComplete={handleTypingComplete}
+                  />
+                ) : (
+                  <EntryText text={item.text} />
+                )}
+              </p>
+            </motion.div>
           );
         })}
       </div>
