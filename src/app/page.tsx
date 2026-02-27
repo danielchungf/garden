@@ -150,6 +150,12 @@ export default function Home() {
               image: "/waffle-logo.webp",
             },
             {
+              name: "Onigiri",
+              tagline: "My Personal OS in Markdown",
+              href: "/onigiri",
+              image: "/onigiri-logo.avif",
+            },
+            {
               name: "SipSip",
               tagline: "Coffee Intake Tracker",
               href: "https://sipsip.cafe/",
