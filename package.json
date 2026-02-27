@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "mkdir -p content && ([ -L content/writing ] || (rm -rf content/writing && if [ -d ~/Documents/_notes/writing ]; then ln -s ~/Documents/_notes/writing content/writing; else mkdir -p content/writing; fi))"
+    "postinstall": "mkdir -p content && if [ -d ~/Documents/_notes/writing ]; then rm -rf content/writing && ln -s ~/Documents/_notes/writing content/writing; fi",
+    "prepare": "git config core.hooksPath .hooks"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",

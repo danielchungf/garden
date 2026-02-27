@@ -1,0 +1,2 @@
+#!/bin/bash
+./scripts/sync-writing.sh
