@@ -38,17 +38,80 @@ function getSectionLabel(dateStr: string): string {
   return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
-function EntryText({ text }: { text: string }) {
-  const commaIndex = text.indexOf(",");
-  if (commaIndex === -1) {
-    return <span className="text-content-primary">{text}</span>;
+type TextSegment =
+  | { type: "text"; content: string }
+  | { type: "link"; content: string; href: string };
+
+const LINK_CLASS =
+  "underline underline-offset-[3px] decoration-muted hover:text-content-primary hover:decoration-content-primary";
+
+function parseSegments(text: string): TextSegment[] {
+  const segments: TextSegment[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ type: "text", content: text.slice(lastIndex, match.index) });
+    }
+    segments.push({ type: "link", content: match[1], href: match[2] });
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    segments.push({ type: "text", content: text.slice(lastIndex) });
+  }
+  return segments;
+}
+
+function renderSegments(segments: TextSegment[], charLimit: number): React.ReactNode {
+  const displayText = segments.map((s) => s.content).join("");
+  const commaIndex = displayText.indexOf(",");
+
+  const primaryNodes: React.ReactNode[] = [];
+  const tertiaryNodes: React.ReactNode[] = [];
+  let displayPos = 0;
+  let remaining = charLimit;
+
+  for (let i = 0; i < segments.length && remaining > 0; i++) {
+    const seg = segments[i];
+    const show = seg.content.slice(0, remaining);
+    remaining -= show.length;
+    const segStart = displayPos;
+    displayPos += seg.content.length;
+
+    const node =
+      seg.type === "link" ? (
+        <a key={i} href={seg.href} target="_blank" rel="noopener noreferrer" className={LINK_CLASS}>
+          {show}
+        </a>
+      ) : (
+        show
+      );
+
+    if (commaIndex === -1 || segStart + show.length <= commaIndex) {
+      primaryNodes.push(node);
+    } else if (segStart >= commaIndex) {
+      tertiaryNodes.push(node);
+    } else {
+      const splitAt = commaIndex - segStart;
+      primaryNodes.push(show.slice(0, splitAt));
+      tertiaryNodes.push(show.slice(splitAt));
+    }
+  }
+
+  if (tertiaryNodes.length === 0) {
+    return <span className="text-content-primary">{primaryNodes}</span>;
   }
   return (
     <>
-      <span className="text-content-primary">{text.slice(0, commaIndex)}</span>
-      <span className="text-content-tertiary">{text.slice(commaIndex)}</span>
+      <span className="text-content-primary">{primaryNodes}</span>
+      <span className="text-content-tertiary">{tertiaryNodes}</span>
     </>
   );
+}
+
+function EntryText({ text }: { text: string }) {
+  return <>{renderSegments(parseSegments(text), Infinity)}</>;
 }
 
 function TypewriterText({
@@ -58,13 +121,18 @@ function TypewriterText({
   text: string;
   onComplete?: () => void;
 }) {
+  const segments = useMemo(() => parseSegments(text), [text]);
+  const displayLength = useMemo(
+    () => segments.reduce((sum, s) => sum + s.content.length, 0),
+    [segments]
+  );
   const [charCount, setCharCount] = useState(0);
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
-  const isComplete = charCount >= text.length;
+  const isComplete = charCount >= displayLength;
 
   useEffect(() => {
-    if (charCount < text.length) {
+    if (charCount < displayLength) {
       const timer = setTimeout(
         () => setCharCount((c) => c + 1),
         TYPEWRITER_SPEED
@@ -73,11 +141,11 @@ function TypewriterText({
     } else {
       onCompleteRef.current?.();
     }
-  }, [charCount, text.length]);
+  }, [charCount, displayLength]);
 
   return (
     <>
-      <EntryText text={text.slice(0, charCount)} />
+      {renderSegments(segments, charCount)}
       {!isComplete && (
         <motion.span
           className="text-content-muted"
