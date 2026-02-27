@@ -161,31 +161,48 @@ export default function Home() {
               href: "https://sipsip.cafe/",
               image: "/sipsip-logo.webp",
             },
-          ].map((project) => (
-            <a
-              key={project.name}
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors"
-            >
-              <Image
-                src={project.image}
-                alt={project.name}
-                width={150}
-                height={150}
-                className="w-[50px] h-[50px] object-contain"
-              />
-              <div className="flex flex-col gap-[2px]">
-                <h3 className="text-h2 text-content-primary">
-                  {project.name}
-                </h3>
-                <p className="text-body-regular text-content-tertiary">
-                  {project.tagline}
+          ].map((project) => {
+            const isExternal = project.href.startsWith("http");
+            const className = "flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors";
+            const content = (
+              <>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  width={150}
+                  height={150}
+                  className="w-[50px] h-[50px] object-contain"
+                />
+                <div className="flex flex-col gap-[2px]">
+                  <h3 className="text-h2 text-content-primary">
+                    {project.name}
+                  </h3>
+                  <p className="text-body-regular text-content-tertiary">
+                    {project.tagline}
                 </p>
-              </div>
-            </a>
-          ))}
+                </div>
+              </>
+            );
+            return isExternal ? (
+              <a
+                key={project.name}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                {content}
+              </a>
+            ) : (
+              <Link
+                key={project.name}
+                href={project.href}
+                className={className}
+              >
+                {content}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
