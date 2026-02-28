@@ -41,7 +41,7 @@ function getEntryIcon(text: string): React.ReactNode | null {
   }
   for (const [key, src] of Object.entries(BRANDED_ICONS)) {
     if (lower.includes(key))
-      return <Image src={src} width={16} height={16} alt={key} />;
+      return <Image src={src} width={16} height={16} alt={key} loading="eager" />;
   }
   return null;
 }
