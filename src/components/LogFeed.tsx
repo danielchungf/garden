@@ -4,11 +4,11 @@ import { motion, LayoutGroup } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import Image from "next/image";
 import {
-  NotebookPen,
-  NotepadText,
+  PencilLine,
+  Briefcase,
   Heart,
   Zap,
-  CircleUserRound,
+  UserRound,
   Rocket,
   Target,
   HeartPulse,
@@ -16,14 +16,14 @@ import {
 import type { LogDay } from "@/lib/logs";
 
 const ENTRY_ICONS: Record<string, React.ReactNode> = {
-  "wrote a piece": <NotebookPen size={20} />,
-  "logged work digest": <NotepadText size={20} />,
-  "wrote in journal": <Heart size={20} />,
-  "captured a thought": <Zap size={20} />,
-  "added": <CircleUserRound size={20} />,
-  "registered a project": <Rocket size={20} />,
-  "updated": <Target size={20} />,
-  "logged health check": <HeartPulse size={20} />,
+  "wrote a piece": <PencilLine size={16} />,
+  "logged work digest": <Briefcase size={16} />,
+  "wrote in journal": <Heart size={16} />,
+  "captured a thought": <Zap size={16} />,
+  "added": <UserRound size={16} />,
+  "registered a project": <Rocket size={16} />,
+  "updated": <Target size={16} />,
+  "logged health check": <HeartPulse size={16} />,
 };
 
 const BRANDED_ICONS: Record<string, string> = {
@@ -31,6 +31,7 @@ const BRANDED_ICONS: Record<string, string> = {
   "bookmarked": "/shiori-logo.png",
   "held a meeting": "/granola-logo.svg",
   "spoke to": "/monologue-logo.png",
+  "listened to": "/spotify-logo.png",
 };
 
 function getEntryIcon(text: string): React.ReactNode | null {
@@ -40,7 +41,7 @@ function getEntryIcon(text: string): React.ReactNode | null {
   }
   for (const [key, src] of Object.entries(BRANDED_ICONS)) {
     if (lower.includes(key))
-      return <Image src={src} width={20} height={20} alt={key} />;
+      return <Image src={src} width={16} height={16} alt={key} />;
   }
   return null;
 }
@@ -327,7 +328,7 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
             <motion.div
               key={item.key}
               layout="position"
-              className="flex items-start gap-2 mb-2"
+              className="flex items-center gap-3 mb-2"
               initial={{ opacity: 0, y: item.isNew ? 0 : 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -336,7 +337,7 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
                 layout: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
               }}
             >
-              {icon && <span className="flex-shrink-0 mt-[2px]">{icon}</span>}
+              {icon && <span className="flex-shrink-0">{icon}</span>}
               <p className="text-body-regular">
                 {item.isTyping ? (
                   <TypewriterText
