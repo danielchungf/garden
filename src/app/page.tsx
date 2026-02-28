@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Mail, Twitter } from "lucide-react";
+import { ArrowRight, Mail, Music, Twitter } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -119,6 +119,18 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           />
+          <Link
+            href="/onigiri"
+            className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center"
+          >
+            <Image
+              src="/onigiri-icon.svg"
+              alt="Onigiri"
+              width={18}
+              height={18}
+            />
+          </Link>
+          <IconButton icon={Music} href="/music" />
         </div>
       </section>
 

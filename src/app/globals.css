@@ -130,6 +130,13 @@
   letter-spacing: -0.02em;
   line-height: 26px;
 }
+.text-body-small {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
 
 /* Prose styles for rendered markdown */
 .prose {
