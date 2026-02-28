@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import type { MonthlyMusic } from "@/types/music";
+
+const STAGGER_DELAY = 0.08;
+const STAGGER_DURATION = 0.35;
 
 function formatMonthLabel(month: string): string {
   const [year, m] = month.split("-");
@@ -49,13 +53,19 @@ export function MusicList({ months }: { months: MonthlyMusic[] }) {
       )}
 
       <div className="flex flex-col">
-        {current.tracks.map((track) => (
-          <a
-            key={track.rank}
+        {current.tracks.map((track, i) => (
+          <motion.a
+            key={`${current.month}-${track.rank}`}
             href={track.spotify_url}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 py-2.5 px-2 -mx-2 rounded-lg hover:bg-neutral-100 transition-colors"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              opacity: { duration: 0.4, delay: i * STAGGER_DELAY },
+              y: { duration: STAGGER_DURATION, delay: i * STAGGER_DELAY },
+            }}
           >
             <span className="w-5 text-h3 text-content-muted tabular-nums shrink-0">
               {String(track.rank).padStart(2, "0")}
@@ -79,7 +89,7 @@ export function MusicList({ months }: { months: MonthlyMusic[] }) {
               </p>
             </div>
 
-          </a>
+          </motion.a>
         ))}
       </div>
     </div>

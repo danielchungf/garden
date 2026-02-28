@@ -101,7 +101,7 @@ export default function Home() {
           </div>
         </div>
 
-        <p className="text-body-regular text-content-tertiary">
+        <p className="text-body-regular text-content-primary">
           I partner with early-stage teams to build software that transform
           how we live, guided by quality, empathy, and curiosity. My aim is to
           create digital products that feel deeply considered, make us more

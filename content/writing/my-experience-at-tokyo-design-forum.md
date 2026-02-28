@@ -6,6 +6,7 @@ tags:
   - design
   - ai
 published: true
+cover: /tdf.avif
 ---
 I was not supposed to attend [Tokyo Design Forum](https://www.tokyodesignforum.com/). But I'm glad I did.
 

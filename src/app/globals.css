@@ -97,21 +97,21 @@
 /* Typography tokens */
 .text-hero {
   font-family: var(--font-inter), sans-serif;
-  font-weight: 500;
+  font-weight: 520;
   font-size: 24px;
   letter-spacing: -0.02em;
   line-height: 32px;
 }
 .text-h1 {
   font-family: var(--font-inter), sans-serif;
-  font-weight: 450;
+  font-weight: 460;
   font-size: 18px;
   letter-spacing: -0.02em;
   line-height: 26px;
 }
 .text-h2 {
   font-family: var(--font-inter), sans-serif;
-  font-weight: 450;
+  font-weight: 460;
   font-size: 16px;
   letter-spacing: -0.02em;
   line-height: 24px;
@@ -149,7 +149,7 @@
 }
 
 .prose h1 {
-  font-weight: 500;
+  font-weight: 520;
   font-size: 24px;
   letter-spacing: -0.02em;
   line-height: 32px;
@@ -159,7 +159,7 @@
 }
 
 .prose h2 {
-  font-weight: 450;
+  font-weight: 460;
   font-size: 18px;
   letter-spacing: -0.02em;
   line-height: 26px;
@@ -169,7 +169,7 @@
 }
 
 .prose h3 {
-  font-weight: 450;
+  font-weight: 460;
   font-size: 16px;
   letter-spacing: -0.02em;
   line-height: 24px;
@@ -183,14 +183,15 @@
 }
 
 .prose a {
-  color: theme(colors.neutral.800);
+  color: theme(colors.neutral.500);
   text-decoration: underline;
   text-decoration-color: theme(colors.neutral.300);
-  text-underline-offset: 2px;
-  transition: text-decoration-color 0.15s;
+  text-underline-offset: 3px;
+  transition: color 0.15s, text-decoration-color 0.15s;
 }
 
 .prose a:hover {
+  color: theme(colors.neutral.800);
   text-decoration-color: theme(colors.neutral.800);
 }
 

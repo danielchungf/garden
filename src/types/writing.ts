@@ -5,6 +5,7 @@ export interface PostMeta {
   description: string;
   tags: string[];
   published: boolean;
+  cover?: string;
 }
 
 export interface Post extends PostMeta {

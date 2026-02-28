@@ -328,7 +328,7 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
             <motion.div
               key={item.key}
               layout="position"
-              className="flex items-center gap-3 mb-2"
+              className="flex items-start gap-3 mb-2"
               initial={{ opacity: 0, y: item.isNew ? 0 : 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -337,7 +337,7 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
                 layout: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
               }}
             >
-              {icon && <span className="flex-shrink-0">{icon}</span>}
+              {icon && <span className="flex-shrink-0 mt-[3px]">{icon}</span>}
               <p className="text-body-regular">
                 {item.isTyping ? (
                   <TypewriterText

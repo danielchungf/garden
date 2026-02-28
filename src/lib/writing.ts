@@ -34,6 +34,7 @@ function parsePostFile(filename: string): Post | null {
     description: data.description,
     tags: data.tags ?? [],
     published: data.published ?? false,
+    cover: data.cover ?? undefined,
     content,
   };
 }
