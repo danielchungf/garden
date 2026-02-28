@@ -1,6 +1,6 @@
 {
   "month": "2026-02",
-  "generated_at": "2026-02-28T00:53:33Z",
+  "generated_at": "2026-02-28T01:03:32Z",
   "tracks": [
     {
       "rank": 1,
@@ -58,7 +58,9 @@
       ],
       "album": "Die With a Smile (Live)",
       "album_art": {
-        "large": "https://i.scdn.co/image/ab6742d3000052b7821abb95d88dcb7fd94d79f8"
+        "large": "https://i.scdn.co/image/ab6742d3000052b7821abb95d88dcb7fd94d79f8",
+        "medium": "https://i.scdn.co/image/ab6742d3000052b7821abb95d88dcb7fd94d79f8",
+        "small": "https://i.scdn.co/image/ab6742d3000052b7821abb95d88dcb7fd94d79f8"
       },
       "spotify_url": "https://open.spotify.com/track/16MQOmRYNMGlg1aTlQwRwC",
       "duration_ms": 78378
