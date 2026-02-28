@@ -38,7 +38,7 @@ export default function ProjectSection({ id, title, body, media }: ProjectSectio
   return (
     <div id={id} className="scroll-mt-20">
       <h2 className="text-h2 text-content-primary mb-3">{title}</h2>
-      <p className="text-body-regular text-content-tertiary">{body}</p>
+      <p className="text-body-regular text-content-primary">{body}</p>
       {media && media.length > 0 && (
         <div className="mt-8 grid grid-cols-6 gap-8">
           {groupMedia(media).map((group, index) => {

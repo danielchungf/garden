@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
@@ -24,6 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | Daniel Chung`,
     description: post.description,
+    ...(post.cover && {
+      openGraph: {
+        images: [{ url: post.cover }],
+      },
+    }),
   };
 }
 
@@ -51,21 +57,18 @@ export default async function PostPage({ params }: PageProps) {
 
       <article className="mt-[60px]">
         <header>
-          <h1 className="text-hero text-content-primary">{post.title}</h1>
+          <h1 className="text-h1 text-content-primary">{post.title}</h1>
           <time className="block mt-3 text-h3 text-content-muted">
             {formatDate(post.date)}
           </time>
-          {post.tags.length > 0 && (
-            <div className="flex gap-2 mt-3">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-h3 text-content-tertiary bg-neutral-100 px-2 py-0.5 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+          {post.cover && (
+            <Image
+              src={post.cover}
+              alt={post.title}
+              width={660}
+              height={371}
+              className="w-full rounded-lg mt-8"
+            />
           )}
         </header>
 

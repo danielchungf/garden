@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* Description - 12px gap from title */}
         <div className="mt-3 space-y-4">
           {project.description.map((paragraph, index) => (
-            <p key={index} className="text-body-regular text-content-tertiary">
+            <p key={index} className="text-body-regular text-content-primary">
               {paragraph}
             </p>
           ))}
