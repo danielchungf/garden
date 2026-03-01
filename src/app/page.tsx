@@ -173,12 +173,7 @@ export default function Home() {
               href: "https://torii-xi.vercel.app/",
               image: "/torii-logo.png",
             },
-            {
-              name: "SipSip",
-              tagline: "Coffee Intake Tracker",
-              href: "https://sipsip.cafe/",
-              image: "/sipsip-logo.webp",
-            },
+
           ].map((project) => {
             const isExternal = project.href.startsWith("http");
             const className = "flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors";
