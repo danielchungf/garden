@@ -168,6 +168,12 @@ export default function Home() {
               image: "/onigiri-logo.avif",
             },
             {
+              name: "Torii",
+              tagline: "Your Pocket Travel Guide",
+              href: "https://torii-xi.vercel.app/",
+              image: "/torii-logo.png",
+            },
+            {
               name: "SipSip",
               tagline: "Coffee Intake Tracker",
               href: "https://sipsip.cafe/",
@@ -246,8 +252,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Writing */}
-      <section>
+      {/* Writing - hidden until first article is ready */}
+      {/* <section>
         <h2 className="text-h2 text-content-primary mb-5">Writing</h2>
         <Link
           href="/writing"
@@ -256,7 +262,7 @@ export default function Home() {
           Read my writing
           <ArrowRight size={16} />
         </Link>
-      </section>
+      </section> */}
 
     </main>
   );
