@@ -58,9 +58,9 @@
       ],
       "album": "Die With a Smile (Live)",
       "album_art": {
-        "large": "",
-        "medium": "",
-        "small": ""
+        "large": "https://i.scdn.co/image/ab6742d3000053b7821abb95d88dcb7fd94d79f8",
+        "medium": "https://i.scdn.co/image/ab6742d3000053b7821abb95d88dcb7fd94d79f8",
+        "small": "https://i.scdn.co/image/ab6742d3000052b7821abb95d88dcb7fd94d79f8"
       },
       "spotify_url": "https://open.spotify.com/track/16MQOmRYNMGlg1aTlQwRwC",
       "duration_ms": 78378
