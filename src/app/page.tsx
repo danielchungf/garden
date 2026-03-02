@@ -112,25 +112,32 @@ export default function Home() {
           <IconButton
             icon={Mail}
             href="mailto:danielchungfung@gmail.com"
+            tooltip="Email"
           />
           <IconButton
             icon={Twitter}
             href="https://x.com/itsdanielchung"
             target="_blank"
             rel="noopener noreferrer"
+            tooltip="Twitter"
           />
-          <Link
-            href="/onigiri"
-            className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center"
-          >
-            <Image
-              src="/onigiri-icon.svg"
-              alt="Onigiri"
-              width={18}
-              height={18}
-            />
-          </Link>
-          <IconButton icon={Music} href="/music" />
+          <div className="relative group">
+            <Link
+              href="/onigiri"
+              className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center"
+            >
+              <Image
+                src="/onigiri-icon.svg"
+                alt="Onigiri"
+                width={18}
+                height={18}
+              />
+            </Link>
+            <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-2 py-1 rounded-md bg-neutral-800 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              My personal OS
+            </span>
+          </div>
+          <IconButton icon={Music} href="/music" tooltip="Top tracks" />
         </div>
       </section>
 
