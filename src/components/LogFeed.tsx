@@ -10,7 +10,6 @@ import {
   Zap,
   UserRound,
   Rocket,
-  Target,
   HeartPulse,
   CloudSun,
 } from "lucide-react";
@@ -24,7 +23,7 @@ const ENTRY_ICONS: Record<string, React.ReactNode> = {
   "captured a thought": <Zap size={16} />,
   "added": <UserRound size={16} />,
   "registered a project": <Rocket size={16} />,
-  "updated": <Target size={16} />,
+  "updated": <UserRound size={16} />,
   "logged health check": <HeartPulse size={16} />,
 };
 
