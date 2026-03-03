@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail, Music, Twitter } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
+// import { PixelPlantCanvas } from "@/components/pixel-plant/PixelPlantCanvas";
 import { getProjectBySlug } from "@/data/projects";
 
 const workProjects = [
@@ -225,6 +226,7 @@ export default function Home() {
           })}
         </div>
       </section>
+
 
       {/* Stack */}
       <section>
