@@ -181,7 +181,12 @@ export default function Home() {
               href: "https://torii-xi.vercel.app/",
               image: "/torii-logo.png",
             },
-
+            {
+              name: "Kion",
+              tagline: "The Family Cookbook",
+              href: "https://www.kion.recipes/",
+              image: "/kion-logo.webp",
+            },
           ].map((project) => {
             const isExternal = project.href.startsWith("http");
             const className = "flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors";
