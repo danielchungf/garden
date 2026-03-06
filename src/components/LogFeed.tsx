@@ -243,10 +243,12 @@ export default function LogFeed({ days }: { days: LogDay[] }) {
     return count;
   }, [allEntries, animateCount]);
 
-  const staggerFinishMs =
+  const staggerFinishMs = Math.min(
     Math.max(0, initialItemCount - 1) * STAGGER_DELAY * 1000 +
-    STAGGER_DURATION * 1000 +
-    200;
+      STAGGER_DURATION * 1000 +
+      200,
+    1500
+  );
 
   useEffect(() => {
     if (revealedCount < animateCount && typingDone) {
