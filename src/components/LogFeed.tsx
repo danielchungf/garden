@@ -13,6 +13,10 @@ import {
   HeartPulse,
   CloudSun,
   FileBraces,
+  Brain,
+  Bot,
+  PencilRuler,
+  AlarmClock,
 } from "lucide-react";
 import type { LogDay } from "@/lib/logs";
 
@@ -24,6 +28,10 @@ const ENTRY_ICONS: Record<string, React.ReactNode> = {
   "captured a thought": <Zap size={16} />,
   "added": <UserRound size={16} />,
   "registered a project": <Rocket size={16} />,
+  "updated identity": <Brain size={16} />,
+  "skills": <Bot size={16} />,
+  "resource": <PencilRuler size={16} />,
+  "routine": <AlarmClock size={16} />,
   "updated": <UserRound size={16} />,
   "logged health check": <HeartPulse size={16} />,
   "defined": <FileBraces size={16} />,
