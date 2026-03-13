@@ -2,6 +2,7 @@ import { getLexicon } from "@/lib/lexicon";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
+import LexiconSidebarIndex from "@/components/LexiconSidebarIndex";
 
 export const metadata = {
   title: "Eng Lexicon — Daniel Chung",
@@ -27,13 +28,15 @@ export default async function LexiconPage() {
 
   return (
     <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px]">
-      <Link href="/">
+      <Link href="/" className="xl:hidden">
         <IconButton icon={ArrowLeft} />
       </Link>
 
+      <LexiconSidebarIndex headings={lexicon.headings} />
+
       <div className="mt-[60px]">
         <div
-          className="prose"
+          className="prose lexicon-prose"
           dangerouslySetInnerHTML={{ __html: lexicon.html }}
         />
       </div>

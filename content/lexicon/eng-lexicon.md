@@ -332,7 +332,7 @@ search("tenns") → ✅ "tennis" (close enough)
 search("xyz")   → ❌ no results (too far off)
 ```
 
-In Brett's context: Twinsi's search does a basic fuzzy match on sport names — so if a user types "basktball" it still finds "basketball." Adding tags would give the search more data to match against, making results better.
+In practice, most apps use fuzzy matching for search — so if a user types "basktball" it still finds "basketball." Adding tags or synonyms gives the search more data to match against, making results even better.
 
 **Compare:** Exact match = must be identical. Fuzzy match = close enough counts. Most modern search UIs use fuzzy matching so users don't have to be perfect typists.
 
@@ -351,9 +351,9 @@ Code change → Tests → Staging → QA → App Store review → Production
 Bug found in production → Fix written → Quick test → Deploy to production
 (hours)
 
-// From Twinsi: Brett found a bug where the streak counter
-// returned 1 even when no weeks met the goal.
-// He pushed a hotfix (PR #248) directly to prod that night.
+// Real scenario: a streak counter was returning 1 even when
+// no weeks met the goal. The engineer pushed a hotfix directly
+// to prod that night — no waiting for the next release cycle.
 ```
 
 **Compare:** A regular release bundles many changes and goes through the full pipeline. A hotfix is a single urgent fix deployed fast. You don't want to hotfix often — it means something slipped through.
@@ -366,20 +366,20 @@ Two separate environments where your app runs. **Production** (or "prod") is the
 **Example:**
 ```
 // Staging: only the team sees this
-https://staging.twinsi.app
+https://staging.myapp.com
 → New features being tested
 → Fake/test data
 → Safe to break things
 
 // Production: real users, real data
-https://twinsi.app
+https://myapp.com
 → Live app in the App Store
-→ Real user workouts and achievements
+→ Real user data and activity
 → Breaking things here = bad
 
-// From Twinsi: Pierre thought the celebration cards
-// were being tested in staging, but Franck confirmed
-// it was prod — real users were seeing them.
+// Common mistake: a designer sees a new feature and assumes
+// it's still in staging — but it's actually live in prod.
+// Always confirm which environment you're looking at.
 ```
 
 **Compare:** Staging is your sandbox — test freely, break things, nobody cares. Production is the stage — real audience, real consequences. Always know which one you're looking at.
@@ -397,10 +397,10 @@ The act of taking your code changes and pushing them to the live production envi
 3. Deploy to staging (team can test it)
 4. Deploy to prod (real users get it)  ← this is "deploying to prod"
 
-// From Twinsi: Brett asked the team before deploying:
+// On most teams, deploying to prod requires a heads-up:
 // "Ok if I deploy this hotfix to prod?"
-// Franck replied: "awesome. yes plz"
-// Brett confirmed: "It is up ✅"
+// "Go for it."
+// "It is up ✅"
 ```
 
 **Compare:** Pushing to GitHub stores your code. Deploying to prod makes it live. They're different steps — you can push code without deploying it.

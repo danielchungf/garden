@@ -70,6 +70,14 @@
 }
 
 @layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Color tokens */
   .text-content-primary { color: theme(colors.neutral.800); }
   .text-content-secondary { color: theme(colors.neutral.600); }
@@ -289,4 +297,9 @@
 
 .prose > :last-child {
   margin-bottom: 0;
+}
+
+/* Lexicon: scroll offset for sidebar index navigation */
+.lexicon-prose h3 {
+  scroll-margin-top: 5rem;
 }
