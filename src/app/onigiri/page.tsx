@@ -1,17 +1,19 @@
 import { getAllLogs } from "@/lib/logs";
+import { getAbout } from "@/lib/about";
 import Image from "next/image";
-import LogFeed from "@/components/LogFeed";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
+import OnigiriTabs from "@/components/OnigiriTabs";
 
 export const metadata = {
   title: "Onigiri — Daniel Chung",
   description: "My personal OS in Markdown. A feed of what I'm doing.",
 };
 
-export default function LogsPage() {
+export default async function OnigiriPage() {
   const days = getAllLogs();
+  const aboutHtml = await getAbout();
 
   return (
     <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px]">
@@ -31,13 +33,16 @@ export default function LogsPage() {
 
         <div className="mt-3 space-y-4">
           <p className="text-body-regular text-content-tertiary">
-            This is my personal OS, built entirely in markdown, called Onigiri. I use Claude Code to run local agents that help me throughout my day: tracking goals, Slack messages, journal entries, people, meeting notes, Git contributions, daily work digests, all of it. Here&apos;s a snippet of what gets logged.
+            Onigiri is my personal OS, built entirely in markdown. Everything lives in plain text files, organized in folders, tracked with git, and currently managed by Claude Code.
+          </p>
+          <p className="text-body-regular text-content-tertiary">
+            It&apos;s a system that almost fully captures my context so the agent can answer any question accurately. Goals, people, work, project ideas, meetings, messages, tasks. A coach that has all the dots connected at all times, and that keeps deepening its understanding of my psyche with each new addition.
           </p>
         </div>
       </div>
 
-      <div className="mt-10">
-        <LogFeed days={days} />
+      <div className="mt-8">
+        <OnigiriTabs days={days} aboutHtml={aboutHtml} />
       </div>
     </main>
   );
