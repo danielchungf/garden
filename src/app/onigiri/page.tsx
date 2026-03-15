@@ -36,7 +36,7 @@ export default async function OnigiriPage() {
             Onigiri is my personal OS, built entirely in markdown. Everything lives in plain text files, organized in folders, tracked with git, and currently managed by Claude Code.
           </p>
           <p className="text-body-regular text-content-tertiary">
-            It&apos;s a system that almost fully captures my context so the agent can answer any question accurately. Goals, people, work, project ideas, meetings, messages, tasks. A coach that has all the dots connected at all times, and that keeps deepening its understanding of my psyche with each new addition.
+            It&apos;s a system that captures my context so the agent can answer any question accurately. Goals, people, work, project ideas, meetings, messages, tasks. Claude reads the system, connects all the dots, and keeps deepening its understanding of my psyche with each new addition.
           </p>
         </div>
       </div>

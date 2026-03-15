@@ -51,7 +51,7 @@ export default function OnigiriTabs({ days, aboutHtml }: OnigiriTabsProps) {
             This is a live feed from Onigiri. A record of what is being built, how it changes, what I&apos;m doing. Each entry comes after a file is created or updated.
           </p>
         </div>
-        <div className="mt-6">
+        <div className="mt-10">
           <LogFeed days={days} />
         </div>
       </TabsContent>
