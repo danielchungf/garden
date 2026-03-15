@@ -17,6 +17,7 @@ import {
   Bot,
   PencilRuler,
   AlarmClock,
+  Plane,
 } from "lucide-react";
 import type { LogDay } from "@/lib/logs";
 
@@ -35,6 +36,7 @@ const ENTRY_ICONS: Record<string, React.ReactNode> = {
   "updated": <UserRound size={16} />,
   "logged health check": <HeartPulse size={16} />,
   "defined": <FileBraces size={16} />,
+  "created a trip": <Plane size={16} />,
 };
 
 const BRANDED_ICONS: Record<string, string> = {
