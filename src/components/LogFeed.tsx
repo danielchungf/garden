@@ -29,6 +29,7 @@ const ENTRY_ICONS: Record<string, React.ReactNode> = {
   "captured a thought": <Zap size={16} />,
   "added": <UserRound size={16} />,
   "registered a project": <Rocket size={16} />,
+  "shipped a new project": <Rocket size={16} />,
   "updated identity": <Brain size={16} />,
   "skill": <Bot size={16} />,
   "resource": <PencilRuler size={16} />,
