@@ -1,0 +1,772 @@
+{
+  "month": "2026-04",
+  "generated_at": "2026-05-01T13:05:11Z",
+  "tracks": [
+    {
+      "rank": 1,
+      "name": "Nada Nuevo",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/7HQBql5uWDaRkMs8qbRNeX",
+      "duration_ms": 176666
+    },
+    {
+      "rank": 2,
+      "name": "RUNWAY",
+      "artists": [
+        "Lady Gaga",
+        "Doechii"
+      ],
+      "album": "RUNWAY",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273848b466bd71bcaa46cb20030",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02848b466bd71bcaa46cb20030",
+        "small": "https://i.scdn.co/image/ab67616d00004851848b466bd71bcaa46cb20030"
+      },
+      "spotify_url": "https://open.spotify.com/track/7BjcYqD0CqXnG45ezWSTYR",
+      "duration_ms": 171010
+    },
+    {
+      "rank": 3,
+      "name": "Soy Increíble",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/62j9HqMqmQZNjW2GtaAhXg",
+      "duration_ms": 189244
+    },
+    {
+      "rank": 4,
+      "name": "Vida Loca",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/5dNky6SuEfNBan5perlSGl",
+      "duration_ms": 155255
+    },
+    {
+      "rank": 5,
+      "name": "Goo Goo Ga Ga",
+      "artists": [
+        "CA7RIEL & Paco Amoroso",
+        "Jack Black"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/2SbNe9dtR0QnQZLsEcOeuH",
+      "duration_ms": 191765
+    },
+    {
+      "rank": 6,
+      "name": "No Me Sirve Más",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/2lOeZ1UysiCIrmk40XBbWH",
+      "duration_ms": 184588
+    },
+    {
+      "rank": 7,
+      "name": "Te llevo tatuada",
+      "artists": [
+        "Jorge Drexler",
+        "Young Miko"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/2i5QOIGSKHw8TP5ljZJg5w",
+      "duration_ms": 190003
+    },
+    {
+      "rank": 8,
+      "name": "Toco madera",
+      "artists": [
+        "Jorge Drexler"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/3GnbDZUKF0XiPELXAV4scm",
+      "duration_ms": 196511
+    },
+    {
+      "rank": 9,
+      "name": "Ay Ay Ay",
+      "artists": [
+        "CA7RIEL & Paco Amoroso",
+        "Anderson .Paak"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/5XI7KiPx9gsgG0QkWlwUfz",
+      "duration_ms": 181424
+    },
+    {
+      "rank": 10,
+      "name": "Todo Ray",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/0nlmOXNy5Wk8rw46RY6dS0",
+      "duration_ms": 198688
+    },
+    {
+      "rank": 11,
+      "name": "Himno del Mediocre",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/684Ss8rlDsMkzduSKIIPYz",
+      "duration_ms": 206000
+    },
+    {
+      "rank": 12,
+      "name": "Muero",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/4Y9IOTRm5rEgZ0jSP9KGmM",
+      "duration_ms": 229578
+    },
+    {
+      "rank": 13,
+      "name": "Hasta Jesús Tuvo un Mal Día",
+      "artists": [
+        "CA7RIEL & Paco Amoroso",
+        "Sting"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/3gLpQYAxilANccvd0pabBy",
+      "duration_ms": 195008
+    },
+    {
+      "rank": 14,
+      "name": "Ha Ha",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/2ef8nibK9jOPm6c23ioyIf",
+      "duration_ms": 188876
+    },
+    {
+      "rank": 15,
+      "name": "¿Qué será que es?",
+      "artists": [
+        "Jorge Drexler",
+        "Rueda de Candombe"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/3rlz9AtVwtM996bgrBYZF4",
+      "duration_ms": 228815
+    },
+    {
+      "rank": 16,
+      "name": "Lo Quiero Ya !",
+      "artists": [
+        "CA7RIEL & Paco Amoroso",
+        "Fred again.."
+      ],
+      "album": "FREE SPIRITS",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273071f30b594eac6e36af7bea5",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02071f30b594eac6e36af7bea5",
+        "small": "https://i.scdn.co/image/ab67616d00004851071f30b594eac6e36af7bea5"
+      },
+      "spotify_url": "https://open.spotify.com/track/2UpI3u7oR5cHrHPAaH46hf",
+      "duration_ms": 197142
+    },
+    {
+      "rank": 17,
+      "name": "Amar y ser amado",
+      "artists": [
+        "Jorge Drexler",
+        "Meritxell Neddermann"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/4O8xeS4MzU6g3AToQUrn0H",
+      "duration_ms": 203074
+    },
+    {
+      "rank": 18,
+      "name": "¿Hay alguien A.I.?",
+      "artists": [
+        "Jorge Drexler"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/5JsrIEUNPeKD31Zpb61Y7R",
+      "duration_ms": 172440
+    },
+    {
+      "rank": 19,
+      "name": "Ante la duda, baila",
+      "artists": [
+        "Jorge Drexler"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/62Uy13sEgOOhfCBUKKuO1w",
+      "duration_ms": 239263
+    },
+    {
+      "rank": 20,
+      "name": "Cuando cantaba Morente",
+      "artists": [
+        "Jorge Drexler",
+        "Ángeles Toledano",
+        "Julio Cobelli"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/4xdsCU51hjDbpnvvO07Qls",
+      "duration_ms": 188667
+    },
+    {
+      "rank": 21,
+      "name": "Disease",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/0T3Hw3kPj9T2E4UoaSXmfn",
+      "duration_ms": 229997
+    },
+    {
+      "rank": 22,
+      "name": "¿Cómo se ama?",
+      "artists": [
+        "Jorge Drexler"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/0aEIAGgFPbtWe9HX4lSEPk",
+      "duration_ms": 218248
+    },
+    {
+      "rank": 23,
+      "name": "Nuestro trabajo / Los puentes",
+      "artists": [
+        "Jorge Drexler",
+        "Américo Young"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/5CV0R4iNXmy1BBbyluPdpA",
+      "duration_ms": 171292
+    },
+    {
+      "rank": 24,
+      "name": "El tambor chico",
+      "artists": [
+        "Jorge Drexler",
+        "Rueda de Candombe"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/5G9ILP0Ma78qW5zpp7fbwE",
+      "duration_ms": 206242
+    },
+    {
+      "rank": 25,
+      "name": "Las palabras",
+      "artists": [
+        "Jorge Drexler",
+        "Falta y Resto"
+      ],
+      "album": "Taracá",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273f15a26775f4c3657d41fa509",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02f15a26775f4c3657d41fa509",
+        "small": "https://i.scdn.co/image/ab67616d00004851f15a26775f4c3657d41fa509"
+      },
+      "spotify_url": "https://open.spotify.com/track/7bgbL3HroTL8376qS0RbO9",
+      "duration_ms": 177800
+    },
+    {
+      "rank": 26,
+      "name": "Can’t Stop the High",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b2738d1cf82837651f08ac1ca1ca",
+        "medium": "https://i.scdn.co/image/ab67616d00001e028d1cf82837651f08ac1ca1ca",
+        "small": "https://i.scdn.co/image/ab67616d000048518d1cf82837651f08ac1ca1ca"
+      },
+      "spotify_url": "https://open.spotify.com/track/1d9AAVXN2uohnH4Fe07Xxn",
+      "duration_ms": 211088
+    },
+    {
+      "rank": 27,
+      "name": "Garden Of Eden",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/4mUR5Tv0CvJtpmnUtzeIgd",
+      "duration_ms": 239720
+    },
+    {
+      "rank": 28,
+      "name": "Killah (feat. Gesaffelstein)",
+      "artists": [
+        "Lady Gaga",
+        "Gesaffelstein"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/4pNzBbGcqXofx8mLBPTeih",
+      "duration_ms": 210651
+    },
+    {
+      "rank": 29,
+      "name": "Vanish Into You",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/5IoPnNiYAOvHHJpz13wzRL",
+      "duration_ms": 244915
+    },
+    {
+      "rank": 30,
+      "name": "Perfect Celebrity",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/0Tqn5Th0wk55eLdga96vZM",
+      "duration_ms": 229252
+    },
+    {
+      "rank": 31,
+      "name": "Abracadabra",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/2LHNTC9QZxsL3nWpt8iaSR",
+      "duration_ms": 223398
+    },
+    {
+      "rank": 32,
+      "name": "Zombieboy",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/0ElVpg9XIswx3XWs6kUj6a",
+      "duration_ms": 213337
+    },
+    {
+      "rank": 33,
+      "name": "Don't Call Tonight",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/0uoWOZeZZiC90RMNDQBqj4",
+      "duration_ms": 225804
+    },
+    {
+      "rank": 34,
+      "name": "Al Otro Lado De La Luna",
+      "artists": [
+        "Gian Marco"
+      ],
+      "album": "A Tiempo",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b2733c3a7e46987e55da3e8fb31d",
+        "medium": "https://i.scdn.co/image/ab67616d00001e023c3a7e46987e55da3e8fb31d",
+        "small": "https://i.scdn.co/image/ab67616d000048513c3a7e46987e55da3e8fb31d"
+      },
+      "spotify_url": "https://open.spotify.com/track/2PUjvB5Wi5NUVLWrEWtSTa",
+      "duration_ms": 250466
+    },
+    {
+      "rank": 35,
+      "name": "How Bad Do U Want Me",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/2rvd6akG8qEtBNUvQpN7iY",
+      "duration_ms": 238886
+    },
+    {
+      "rank": 36,
+      "name": "The Dead Dance",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b2738d1cf82837651f08ac1ca1ca",
+        "medium": "https://i.scdn.co/image/ab67616d00001e028d1cf82837651f08ac1ca1ca",
+        "small": "https://i.scdn.co/image/ab67616d000048518d1cf82837651f08ac1ca1ca"
+      },
+      "spotify_url": "https://open.spotify.com/track/5pobX21I8uZdHM8YOWItU7",
+      "duration_ms": 228518
+    },
+    {
+      "rank": 37,
+      "name": "drop dead",
+      "artists": [
+        "Olivia Rodrigo"
+      ],
+      "album": "drop dead (taken that eurostar to france video)",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b2731a1495ff41046065b9475366",
+        "medium": "https://i.scdn.co/image/ab67616d00001e021a1495ff41046065b9475366",
+        "small": "https://i.scdn.co/image/ab67616d000048511a1495ff41046065b9475366"
+      },
+      "spotify_url": "https://open.spotify.com/track/7Hc6qcJG4NtyZgbNvQyd8U",
+      "duration_ms": 224998
+    },
+    {
+      "rank": 38,
+      "name": "Shape of a Woman",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "The Devil Wears Prada 2 (Music From The Motion Picture)",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273973cd0eba9aa4d0ce3b08228",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02973cd0eba9aa4d0ce3b08228",
+        "small": "https://i.scdn.co/image/ab67616d00004851973cd0eba9aa4d0ce3b08228"
+      },
+      "spotify_url": "https://open.spotify.com/track/6aFsbhzye4yfT25ohmhOQY",
+      "duration_ms": 209852
+    },
+    {
+      "rank": 39,
+      "name": "LoveDrug",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/3hcivoswCVR8LZkHR8MYA5",
+      "duration_ms": 193232
+    },
+    {
+      "rank": 40,
+      "name": "Corazón partío",
+      "artists": [
+        "Alejandro Sanz"
+      ],
+      "album": "Más",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b2733443d9c76e9713a5986c983c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e023443d9c76e9713a5986c983c",
+        "small": "https://i.scdn.co/image/ab67616d000048513443d9c76e9713a5986c983c"
+      },
+      "spotify_url": "https://open.spotify.com/track/0wQCKR9OFjYu5Kzrk7WivJ",
+      "duration_ms": 343413
+    },
+    {
+      "rank": 41,
+      "name": "Bendita Tu Luz",
+      "artists": [
+        "Maná",
+        "Juan Luis Guerra 4.40"
+      ],
+      "album": "Amar Es Combatir",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b27306a335c72b44d0bcd4060fcc",
+        "medium": "https://i.scdn.co/image/ab67616d00001e0206a335c72b44d0bcd4060fcc",
+        "small": "https://i.scdn.co/image/ab67616d0000485106a335c72b44d0bcd4060fcc"
+      },
+      "spotify_url": "https://open.spotify.com/track/2JBs412fpVUuzIaIp3CyIs",
+      "duration_ms": 264720
+    },
+    {
+      "rank": 42,
+      "name": "Entra en Mi Vida",
+      "artists": [
+        "Sin Bandera"
+      ],
+      "album": "Sin Bandera",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273a1f3d1bb9473eb66a7b426cd",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02a1f3d1bb9473eb66a7b426cd",
+        "small": "https://i.scdn.co/image/ab67616d00004851a1f3d1bb9473eb66a7b426cd"
+      },
+      "spotify_url": "https://open.spotify.com/track/2h0iSG7htO0V4IvuwbTBf3",
+      "duration_ms": 248760
+    },
+    {
+      "rank": 43,
+      "name": "Kill For Love",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b2738d1cf82837651f08ac1ca1ca",
+        "medium": "https://i.scdn.co/image/ab67616d00001e028d1cf82837651f08ac1ca1ca",
+        "small": "https://i.scdn.co/image/ab67616d000048518d1cf82837651f08ac1ca1ca"
+      },
+      "spotify_url": "https://open.spotify.com/track/6iAWfzQSSHemnvL5yq1q2k",
+      "duration_ms": 246600
+    },
+    {
+      "rank": 44,
+      "name": "Blade Of Grass",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/7xIoinMSiwIp5BWR7toO1O",
+      "duration_ms": 257006
+    },
+    {
+      "rank": 45,
+      "name": "Shadow Of A Man",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/6OC87jHRiovNPEUrgaqFSu",
+      "duration_ms": 199723
+    },
+    {
+      "rank": 46,
+      "name": "Mientes Tan Bien",
+      "artists": [
+        "Sin Bandera"
+      ],
+      "album": "De Viaje",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b27365ad331cf7c3f45284ca8a39",
+        "medium": "https://i.scdn.co/image/ab67616d00001e0265ad331cf7c3f45284ca8a39",
+        "small": "https://i.scdn.co/image/ab67616d0000485165ad331cf7c3f45284ca8a39"
+      },
+      "spotify_url": "https://open.spotify.com/track/072YgF7J2clpY8DsWOpEri",
+      "duration_ms": 227613
+    },
+    {
+      "rank": 47,
+      "name": "The Beast",
+      "artists": [
+        "Lady Gaga"
+      ],
+      "album": "MAYHEM",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02b0860cf0a98e09663c82290c",
+        "small": "https://i.scdn.co/image/ab67616d00004851b0860cf0a98e09663c82290c"
+      },
+      "spotify_url": "https://open.spotify.com/track/08svDlp6TNFlfMIgjjZlYI",
+      "duration_ms": 234280
+    },
+    {
+      "rank": 48,
+      "name": "A Dios Le Pido",
+      "artists": [
+        "Juanes"
+      ],
+      "album": "Un Día Normal",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b27323a1613112c1ecf946f51177",
+        "medium": "https://i.scdn.co/image/ab67616d00001e0223a1613112c1ecf946f51177",
+        "small": "https://i.scdn.co/image/ab67616d0000485123a1613112c1ecf946f51177"
+      },
+      "spotify_url": "https://open.spotify.com/track/129lYDVKnWtlJc2PZJviuA",
+      "duration_ms": 205373
+    },
+    {
+      "rank": 49,
+      "name": "Dejaría Todo",
+      "artists": [
+        "Chayanne"
+      ],
+      "album": "Chayanne Fan's Pack - Tiempo De Vals/Volver A Nacer/Atado A Tu Amor",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273ae2d140f5e6cf4e1fe6c8564",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02ae2d140f5e6cf4e1fe6c8564",
+        "small": "https://i.scdn.co/image/ab67616d00004851ae2d140f5e6cf4e1fe6c8564"
+      },
+      "spotify_url": "https://open.spotify.com/track/1UzChRXWdrbeNngBQ7o0oS",
+      "duration_ms": 284466
+    },
+    {
+      "rank": 50,
+      "name": "A Couple Minutes - A COLORS SHOW",
+      "artists": [
+        "Olivia Dean",
+        "COLORS"
+      ],
+      "album": "A Couple Minutes - A COLORS SHOW",
+      "album_art": {
+        "large": "https://i.scdn.co/image/ab67616d0000b273e73d9d6037c9c6c7e8b3f438",
+        "medium": "https://i.scdn.co/image/ab67616d00001e02e73d9d6037c9c6c7e8b3f438",
+        "small": "https://i.scdn.co/image/ab67616d00004851e73d9d6037c9c6c7e8b3f438"
+      },
+      "spotify_url": "https://open.spotify.com/track/1WiHuDPI9vNkicCNg9Tkbu",
+      "duration_ms": 213120
+    }
+  ]
+}
