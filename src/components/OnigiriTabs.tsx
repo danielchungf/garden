@@ -24,10 +24,10 @@ interface OnigiriTabsProps {
 
 export default function OnigiriTabs({ days, aboutHtml }: OnigiriTabsProps) {
   return (
-    <Tabs defaultValue="about">
+    <Tabs defaultValue="log">
       <TabsList className="bg-neutral-100 gap-0.5">
-        <TabsTrigger value="about" className="text-content-tertiary data-[state=active]:bg-white data-[state=active]:text-neutral-800">About</TabsTrigger>
         <TabsTrigger value="log" className="text-content-tertiary data-[state=active]:bg-white data-[state=active]:text-neutral-800">Feed</TabsTrigger>
+        <TabsTrigger value="about" className="text-content-tertiary data-[state=active]:bg-white data-[state=active]:text-neutral-800">About</TabsTrigger>
         <TabsTrigger value="rhizome" className="text-content-tertiary data-[state=active]:bg-white data-[state=active]:text-neutral-800">Rhizome</TabsTrigger>
       </TabsList>
 
