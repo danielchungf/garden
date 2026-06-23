@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Mail, Music, Twitter } from "lucide-react";
+import { ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
 // import { PixelPlantCanvas } from "@/components/pixel-plant/PixelPlantCanvas";
 import { getProjectBySlug } from "@/data/projects";
@@ -138,6 +138,7 @@ export default function Home() {
               My personal OS
             </span>
           </div>
+          <IconButton icon={Camera} href="/photography" tooltip="Photography" />
           <IconButton icon={Music} href="/music" tooltip="Top tracks" />
         </div>
       </section>
