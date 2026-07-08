@@ -188,6 +188,18 @@ export default function Home() {
               href: "https://www.kion.recipes/",
               image: "/kion-logo.webp",
             },
+            {
+              name: "Mettle",
+              tagline: "A Walking RPG",
+              href: "https://testflight.apple.com/join/Ugcevx1V",
+              image: "/mettle-logo.png",
+            },
+            {
+              name: "Bites",
+              tagline: "Stickerfy Your Food",
+              href: "https://testflight.apple.com/join/FZSHez9g",
+              image: "/bites-logo.png",
+            },
           ].map((project) => {
             const isExternal = project.href.startsWith("http");
             const className = "flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors";
@@ -242,7 +254,7 @@ export default function Home() {
             { name: "Figma", image: "/figma-logo.png" },
             { name: "Claude", image: "/claude-logo.png" },
             { name: "Conductor", image: "/conductor-logo.png" },
-            { name: "Monologue", image: "/monologue-logo.png" },
+            { name: "Xcode", image: "/xcode-logo.png" },
             { name: "Mobbin", image: "/mobbin-logo.png" },
             { name: "Supabase", image: "/subapase-logo.png" },
           ].map((tool) => (
