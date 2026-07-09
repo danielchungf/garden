@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Agentation } from "agentation";
+import Tracker from "@/components/activity/Tracker";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased bg-neutral-50`}
       >
         {children}
+        <Tracker />
         {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
