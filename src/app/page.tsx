@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
+import { Activity, ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
 // import { PixelPlantCanvas } from "@/components/pixel-plant/PixelPlantCanvas";
 import { getProjectBySlug } from "@/data/projects";
@@ -63,11 +63,31 @@ function WorkCard({
   );
 
   if (hasDetailPage) {
-    return <Link href={`/${project.slug}`}>{content}</Link>;
+    return (
+      <Link
+        href={`/${project.slug}`}
+        data-track-section="work"
+        data-track-label={project.name}
+        data-track-href={`/${project.slug}`}
+      >
+        {content}
+      </Link>
+    );
   }
 
   if ('externalUrl' in project && project.externalUrl) {
-    return <a href={project.externalUrl} target="_blank" rel="noopener noreferrer">{content}</a>;
+    return (
+      <a
+        href={project.externalUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-section="work"
+        data-track-label={project.name}
+        data-track-href={project.externalUrl}
+      >
+        {content}
+      </a>
+    );
   }
 
   return content;
@@ -121,11 +141,17 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             tooltip="Twitter"
+            data-track-section="outbound"
+            data-track-label="Twitter"
+            data-track-href="https://x.com/itsdanielchung"
           />
           <div className="relative group">
             <Link
               href="/onigiri"
               className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center"
+              data-track-section="onigiri"
+              data-track-label="Onigiri"
+              data-track-href="/onigiri"
             >
               <Image
                 src="/onigiri-icon.svg"
@@ -138,8 +164,23 @@ export default function Home() {
               My personal OS
             </span>
           </div>
-          <IconButton icon={Camera} href="/photography" tooltip="Photography" />
-          <IconButton icon={Music} href="/music" tooltip="Top tracks" />
+          <IconButton
+            icon={Camera}
+            href="/photography"
+            tooltip="Photography"
+            data-track-section="photography"
+            data-track-label="Photography"
+            data-track-href="/photography"
+          />
+          <IconButton
+            icon={Music}
+            href="/music"
+            tooltip="Top tracks"
+            data-track-section="music"
+            data-track-label="Music"
+            data-track-href="/music"
+          />
+          <IconButton icon={Activity} href="/activity" tooltip="Activity" />
         </div>
       </section>
 
@@ -229,6 +270,9 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={className}
+                data-track-section="project"
+                data-track-label={project.name}
+                data-track-href={project.href}
               >
                 {content}
               </a>
@@ -237,6 +281,9 @@ export default function Home() {
                 key={project.name}
                 href={project.href}
                 className={className}
+                data-track-section="project"
+                data-track-label={project.name}
+                data-track-href={project.href}
               >
                 {content}
               </Link>
