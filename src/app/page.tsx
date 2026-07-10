@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Activity, ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
+import { ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
 // import { PixelPlantCanvas } from "@/components/pixel-plant/PixelPlantCanvas";
 import { getProjectBySlug } from "@/data/projects";
@@ -180,7 +180,6 @@ export default function Home() {
             data-track-label="Music"
             data-track-href="/music"
           />
-          <IconButton icon={Activity} href="/activity" tooltip="Activity" />
         </div>
       </section>
 
