@@ -303,3 +303,71 @@
 .lexicon-prose h3 {
   scroll-margin-top: 5rem;
 }
+
+/* Chat: each streamed word fades in as it's revealed */
+@keyframes chat-word-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chat-word {
+  animation: chat-word-in 350ms ease-out both;
+}
+
+/* Chat: typing indicator — three dots hopping in sequence */
+@keyframes chat-dot-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes chat-dot-fade {
+  0%,
+  60%,
+  100% {
+    opacity: 0.4;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+.chat-dot {
+  animation: chat-dot-bounce 1.1s ease-in-out infinite;
+}
+
+.chat-dot:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.chat-dot:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-dot {
+    animation-name: chat-dot-fade;
+  }
+}
+
+/* Chat: messages dissolve as they scroll under the top edge. The fade height
+   matches the scroll area's top padding so nothing is masked until it scrolls.
+   Scrollbar is hidden — the fade already signals there's more above. */
+.chat-scroll-fade {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 56px);
+  mask-image: linear-gradient(to bottom, transparent 0, black 56px);
+  scrollbar-width: none;
+}
+
+.chat-scroll-fade::-webkit-scrollbar {
+  display: none;
+}

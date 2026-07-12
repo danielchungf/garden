@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
+import { ChatIcon } from "@/components/icons/ChatIcon";
 import { IconButton } from "@/components/IconButton";
 // import { PixelPlantCanvas } from "@/components/pixel-plant/PixelPlantCanvas";
 import { getProjectBySlug } from "@/data/projects";
@@ -179,6 +180,14 @@ export default function Home() {
             data-track-section="music"
             data-track-label="Music"
             data-track-href="/music"
+          />
+          <IconButton
+            icon={ChatIcon}
+            href="/chat"
+            tooltip="Ask about me"
+            data-track-section="chat"
+            data-track-label="Chat"
+            data-track-href="/chat"
           />
         </div>
       </section>

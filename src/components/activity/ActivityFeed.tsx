@@ -11,6 +11,7 @@ import {
   PencilLine,
   ArrowUpRight,
 } from "lucide-react";
+import { ChatIcon } from "@/components/icons/ChatIcon";
 import type { ActivityEvent, ActivitySection } from "@/lib/activity";
 import { activityText } from "@/lib/activity";
 
@@ -25,6 +26,7 @@ const SECTION_ICON: Record<ActivitySection, React.ReactNode> = {
   music: <Music size={16} />,
   photography: <Camera size={16} />,
   writing: <PencilLine size={16} />,
+  chat: <ChatIcon size={16} />,
   outbound: <ArrowUpRight size={16} />,
 };
 
