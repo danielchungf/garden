@@ -14,6 +14,7 @@ const SECTIONS: ActivitySection[] = [
   "music",
   "photography",
   "writing",
+  "chat",
   "outbound",
 ];
 const TYPES: ActivityType[] = ["view", "click"];

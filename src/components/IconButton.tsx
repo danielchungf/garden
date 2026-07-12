@@ -1,7 +1,5 @@
-import { type LucideIcon } from "lucide-react";
-
 interface IconButtonBaseProps {
-  icon: LucideIcon;
+  icon: React.ComponentType<{ size?: number | string; className?: string }>;
   className?: string;
   tooltip?: string;
 }

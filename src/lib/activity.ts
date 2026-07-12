@@ -9,6 +9,7 @@ export type ActivitySection =
   | "music"
   | "photography"
   | "writing"
+  | "chat"
   | "outbound";
 
 export type ActivityType = "view" | "click";
@@ -37,6 +38,7 @@ export const SECTION_VERB: Record<ActivitySection, { view: string; click: string
   music: { view: "browsed", click: "tapped" },
   photography: { view: "browsed", click: "tapped" },
   writing: { view: "read", click: "opened" },
+  chat: { view: "chatted on", click: "opened" },
   outbound: { view: "followed", click: "followed" },
 };
 
