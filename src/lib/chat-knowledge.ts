@@ -92,7 +92,7 @@ mention Valdivia Works as supporting context, if at all:
 ## Side projects
 Currently building. When asked what side projects he's working on right now, these five are the answer: Piper, Casita, Mettle, Bites, Kion.
 - Piper, Ultimate Travel Planner (https://www.piper.travel/)
-- Casita, a shared household OS he and his wife actually run their home on
+- Casita, a shared household OS he and his partner actually run their home on
 - Mettle, a social fitness RPG (iOS, on TestFlight)
 - Bites, "Stickerfy Your Food" (iOS, on TestFlight)
 - Kion, The Family Cookbook (https://www.kion.recipes/)
