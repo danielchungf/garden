@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Public endpoint — keep every request small and bounded.
-const MAX_MESSAGES = 20;
+const MAX_MESSAGES = 40;
 const MAX_MESSAGE_CHARS = 1000;
 const MAX_OUTPUT_TOKENS = 1024;
 
@@ -110,7 +110,7 @@ export async function POST(req: Request) {
   if (!limit.ok) {
     return new Response(
       limit.reason === "ip"
-        ? "You're sending messages a little fast. Try again in a few minutes."
+        ? "I suggest you take this conversation with the real me. Email me at [danielchungfung@gmail.com](mailto:danielchungfung@gmail.com) or DM me on [Twitter](https://x.com/itsdanielchung)."
         : "The chat has hit its daily limit. Come back tomorrow!",
       { status: 429 },
     );
