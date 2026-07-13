@@ -145,7 +145,7 @@ export function Chat() {
         headers: { "Content-Type": "application/json" },
         // Keep the request bounded — the API only accepts short conversations.
         body: JSON.stringify({
-          messages: history.slice(-19),
+          messages: history.slice(-39),
           sessionId: (sessionIdRef.current ||= crypto.randomUUID()),
         }),
       });

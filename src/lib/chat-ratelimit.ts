@@ -3,9 +3,9 @@ import { getStore } from "@netlify/blobs";
 
 const STORE_NAME = "chat-ratelimit";
 
-// Per-IP: 10 messages per 10 minutes. Global: hard daily cap as a cost backstop.
+// Per-IP: 20 messages per 10 minutes. Global: hard daily cap as a cost backstop.
 const WINDOW_MS = 10 * 60 * 1000;
-const MAX_PER_WINDOW = 10;
+const MAX_PER_WINDOW = 20;
 const MAX_GLOBAL_PER_DAY = 400;
 
 function store() {
