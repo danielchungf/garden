@@ -1,16 +1,18 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+// eslint-config-next v16 ships native flat configs, so they're imported
+// directly (the old FlatCompat bridge crashes with ESLint 9 + Next 16).
+import coreWebVitals from "eslint-config-next/core-web-vitals";
+import typescript from "eslint-config-next/typescript";
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...coreWebVitals,
+  ...typescript,
+  {
+    // react-three-fiber renders three.js objects as lowercase JSX tags with
+    // non-DOM props (position, args, castShadow...); this rule only knows
+    // real DOM elements, so it's disabled for the 3D world components.
+    files: ["src/components/world/**/*.tsx"],
+    rules: { "react/no-unknown-property": "off" },
+  },
 ];
 
 export default eslintConfig;
