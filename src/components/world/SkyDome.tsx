@@ -14,6 +14,7 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { SUNSET } from "./constants";
+import { SKY_GRADIENT_GLSL } from "./skyGradient";
 
 const VERTEX = /* glsl */ `
   // Runs once per corner of the sphere. Passes the direction of that
@@ -36,28 +37,21 @@ const FRAGMENT = /* glsl */ `
   uniform vec3 uSunColor;
   uniform vec3 uSunDirection;
 
+  ${SKY_GRADIENT_GLSL}
+
   void main() {
     vec3 dir = normalize(vDirection);
+    vec3 sunDir = normalize(uSunDirection);
 
-    // --- The gradient ---------------------------------------------
-    // "height" is 0 at the horizon and 1 straight up. Below the
-    // horizon we clamp to 0, so the underside stays horizon-orange.
-    float height = clamp(dir.y, 0.0, 1.0);
+    // The gradient + the sun's halo (shared with the ocean, which
+    // reflects this exact same sky — see skyGradient.ts).
+    vec3 color = skyGradient(
+      dir, sunDir, uTopColor, uMidColor, uHorizonColor, uSunColor
+    );
 
-    // smoothstep(a, b, x) eases from 0 to 1 as x moves from a to b —
-    // it's what makes the color bands blend instead of striping.
-    vec3 color = mix(uHorizonColor, uMidColor, smoothstep(0.02, 0.20, height));
-    color = mix(color, uTopColor, smoothstep(0.18, 0.55, height));
-
-    // --- The sun ---------------------------------------------------
-    // How directly this pixel looks at the sun: 1.0 dead-on, 0 at 90°.
-    float towardSun = clamp(dot(dir, normalize(uSunDirection)), 0.0, 1.0);
-
-    // A wide warm halo that brightens the sky around the sun...
-    color += uSunColor * pow(towardSun, 8.0) * 0.35;
-
-    // ...and the disc itself: oversized (a real sun is ~0.5° across;
+    // The sun's disc itself: oversized (a real sun is ~0.5° across;
     // this one is ~4°) because sunsets remember bigger than they are.
+    float towardSun = clamp(dot(dir, sunDir), 0.0, 1.0);
     color += uSunColor * smoothstep(0.9975, 0.9987, towardSun) * 1.1;
 
     gl_FragColor = vec4(color, 1.0);

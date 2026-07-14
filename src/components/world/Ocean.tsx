@@ -6,16 +6,19 @@
 // overlapping sine waves, and tilt it over time. Light bouncing off
 // those imaginary tilts is what reads as glints and shimmer.
 //
-// Three layers build the look, all using the same sunset colors:
-//   1. Base water: indigo up close, melting into horizon-orange far away
-//      (the same trick the old fog did — the seam with the sky vanishes).
-//   2. The sun path: a broad warm lane on the water pointing at the sun.
-//   3. Glints: sharp sparkles where a wave happens to tilt just right.
+// The big idea: water is a soft MIRROR of the sky. For every pixel we
+// bounce the viewing ray off the surface and ask the shared skyGradient
+// "what color is the sky over there?" — so the pink and orange spread
+// across the whole sea, not just near the sun. How mirror-like the
+// water is follows the Fresnel rule: nearly a mirror at a glancing
+// look (the distance), more its own indigo when you look straight
+// down into it (at your feet).
 
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { SUNSET, OCEAN } from "./constants";
+import { SKY_GRADIENT_GLSL } from "./skyGradient";
 
 const VERTEX = /* glsl */ `
   // Passes each point's position in the world to the fragment shader,
@@ -35,8 +38,12 @@ const FRAGMENT = /* glsl */ `
   uniform float uTime;
   uniform vec3 uSunDirection;
   uniform vec3 uDeepColor;
+  uniform vec3 uTopColor;
+  uniform vec3 uMidColor;
   uniform vec3 uHorizonColor;
   uniform vec3 uSunColor;
+
+  ${SKY_GRADIENT_GLSL}
 
   // Invent a gently-rocking surface tilt at point p. Three sine waves
   // with different directions, sizes and speeds overlap — one alone
@@ -58,39 +65,57 @@ const FRAGMENT = /* glsl */ `
 
   void main() {
     vec3 sunDir = normalize(uSunDirection);
-    vec3 normal = waveNormal(vWorldPosition.xz * 0.5, uTime);
-
-    // Which way is the camera from this pixel of water?
     vec3 toCamera = normalize(cameraPosition - vWorldPosition);
-
-    // --- 1. Base water ---------------------------------------------
     float distance = length(vWorldPosition.xz - cameraPosition.xz);
-    float horizonFade = smoothstep(60.0, 800.0, distance);
-    vec3 color = mix(uDeepColor, uHorizonColor, horizonFade);
 
-    // Water seen at a glancing angle mirrors the sky a little
-    // (the "fresnel" effect) — lifts the surface, keeps it airy.
-    float grazing = pow(1.0 - clamp(dot(toCamera, vec3(0.0, 1.0, 0.0)), 0.0, 1.0), 3.0);
-    color = mix(color, uHorizonColor, grazing * 0.35);
+    // The waves flatten out with distance. Partly realism (far water
+    // reads calm), mostly craft: far away, one screen pixel covers many
+    // wave crests, and sampling that with full-strength waves turns the
+    // horizon into flickering noise. Flat far water = a clean mirror.
+    vec3 normal = waveNormal(vWorldPosition.xz * 0.5, uTime);
+    float calm = smoothstep(25.0, 140.0, distance);
+    normal = normalize(mix(normal, vec3(0.0, 1.0, 0.0), calm));
 
-    // --- 2. The sun path -------------------------------------------
-    // How aligned is "camera → this pixel" with "toward the sun",
-    // measured flat on the water? High power = a focused lane.
+    // --- 1. The sky, mirrored ---------------------------------------
+    // Bounce the view ray off the rocking surface and look up the sky's
+    // color in that direction. abs() keeps the bounce above the horizon
+    // (water can only reflect sky, never the void beneath it).
+    vec3 bounced = reflect(-toCamera, normal);
+    bounced.y = abs(bounced.y);
+    vec3 skyMirror = skyGradient(
+      bounced, sunDir, uTopColor, uMidColor, uHorizonColor, uSunColor
+    );
+
+    // Fresnel: how mirror-like is this pixel? Glancing look (far water)
+    // → almost pure mirror; steep look (near your feet) → mostly the
+    // water's own deep color.
+    float steepness = clamp(dot(toCamera, normal), 0.0, 1.0);
+    float mirrorAmount = 0.08 + 0.92 * pow(1.0 - steepness, 3.0);
+    vec3 color = mix(uDeepColor, skyMirror, mirrorAmount);
+
+    // --- 2. The sun path --------------------------------------------
+    // A gentle extra warmth in the lane toward the sun — wide and soft;
+    // the mirrored sky already does most of this work.
     vec2 towardPixel = normalize(vWorldPosition.xz - cameraPosition.xz);
     vec2 towardSun = normalize(sunDir.xz);
-    float lane = pow(clamp(dot(towardPixel, towardSun), 0.0, 1.0), 16.0);
-    color += uSunColor * lane * 0.22;
+    float lane = pow(clamp(dot(towardPixel, towardSun), 0.0, 1.0), 8.0);
+    // A sun path only exists off toward the horizon. For water nearly
+    // beneath you the horizontal direction is meaningless, and without
+    // this fade the lane paints a fake light-beam at the shore's base
+    // (like a reflector inside a pool).
+    lane *= smoothstep(10.0, 40.0, distance);
+    color += uSunColor * lane * 0.10;
 
     // --- 3. Glints ---------------------------------------------------
     // Mirror the sun off the rocking surface; where the bounce heads
-    // at the camera, the water flashes. The wave motion makes the
-    // flashes wander and twinkle on their own.
-    vec3 bounce = reflect(-sunDir, normal);
-    float glint = pow(clamp(dot(bounce, toCamera), 0.0, 1.0), 120.0);
-    // Calm the water near the island (up close the sparkles would look
-    // like big white blobs); let it twinkle freely in the distance.
-    float nearCalm = 0.25 + 0.75 * smoothstep(15.0, 80.0, distance);
-    color += uSunColor * glint * nearCalm * (0.35 + 0.55 * lane);
+    // at the camera, the water flashes. This plays the role of the
+    // sun-disc's reflection, so it stays strongest inside the lane.
+    vec3 sunBounce = reflect(-sunDir, normal);
+    float glint = pow(clamp(dot(sunBounce, toCamera), 0.0, 1.0), 90.0);
+    // Calm the sparkle near the shore so it doesn't turn into big
+    // white blobs right below you; let it twinkle in the distance.
+    float nearCalm = 0.2 + 0.8 * smoothstep(15.0, 80.0, distance);
+    color += uSunColor * glint * nearCalm * (0.25 + 0.5 * lane);
 
     gl_FragColor = vec4(color, 1.0);
   }
@@ -106,6 +131,8 @@ export default function Ocean() {
         value: new THREE.Vector3(...SUNSET.SUN_DIRECTION).normalize(),
       },
       uDeepColor: { value: new THREE.Color(OCEAN.DEEP_COLOR) },
+      uTopColor: { value: new THREE.Color(SUNSET.SKY_TOP) },
+      uMidColor: { value: new THREE.Color(SUNSET.SKY_MID) },
       uHorizonColor: { value: new THREE.Color(SUNSET.SKY_HORIZON) },
       uSunColor: { value: new THREE.Color(SUNSET.SUN_COLOR) },
     }),

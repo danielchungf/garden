@@ -8,8 +8,8 @@ import { PLAYER, SUNSET } from "./constants";
 import PlayerController from "./PlayerController";
 import SkyDome from "./SkyDome";
 import Ocean from "./Ocean";
-import Island from "./Island";
-import PlaceholderCube from "./PlaceholderCube";
+import Land from "./Land";
+import SumiCat from "./SumiCat";
 
 // The sun sits low in the west; the shadow-casting light shines from the
 // same direction so the whole scene agrees about where the light is.
@@ -66,8 +66,8 @@ export default function WorldCanvas({ onLockChange }: WorldCanvasProps) {
 
       <SkyDome />
       <Ocean />
-      <Island />
-      <PlaceholderCube />
+      <Land />
+      <SumiCat />
       <PlayerController onLockChange={onLockChange} />
     </Canvas>
   );
