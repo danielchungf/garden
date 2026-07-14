@@ -94,6 +94,16 @@ export default function World() {
         <WorldCanvas onLockChange={handleLockChange} />
       </div>
       <EntryOverlay locked={locked} hasEntered={hasEntered} />
+
+      {/* Quiet reminder in the corner while you're inside the world.
+          Fades opposite to the entry overlay. */}
+      <div
+        className={`absolute left-4 top-4 z-10 text-xs text-neutral-500/80 transition-opacity duration-500 ${
+          locked ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        press esc to exit
+      </div>
     </div>
   );
 }
