@@ -16,7 +16,9 @@ export default function Island() {
       <cylinderGeometry
         args={[ISLAND.RADIUS, ISLAND.RADIUS * 0.55, THICKNESS, 14, 1]}
       />
-      <meshStandardMaterial color="#d8d2c6" flatShading />
+      {/* Warm mid-tone rock: the low sun paints the west faces orange
+          and leaves the east faces in cool violet shadow. */}
+      <meshStandardMaterial color="#c49a7d" flatShading />
     </mesh>
   );
 }

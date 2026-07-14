@@ -17,7 +17,7 @@ const WorldCanvas = dynamic(() => import("./WorldCanvas"), {
   ssr: false,
   loading: () => (
     <div className="absolute inset-0 flex items-center justify-center">
-      <p className="text-sm text-neutral-400">warming up…</p>
+      <p className="text-sm text-white/70">warming up…</p>
     </div>
   ),
 });
@@ -68,12 +68,12 @@ export default function World() {
 
   if (isTouch === null) {
     // One blank frame while we check the pointer type.
-    return <div className="fixed inset-0 bg-[#efe6d8]" />;
+    return <div className="fixed inset-0 bg-gradient-to-b from-[#8d84c6] via-[#f591a3] to-[#ffa563]" />;
   }
 
   if (isTouch) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-[#efe6d8] px-6">
+      <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-b from-[#8d84c6] via-[#f591a3] to-[#ffa563] px-6">
         <div className="max-w-xs rounded-xl bg-white/80 p-6 text-center shadow-sm">
           <p className="text-sm text-neutral-600">
             This little world needs a keyboard and a mouse — come back on a
@@ -85,7 +85,7 @@ export default function World() {
   }
 
   return (
-    <div className="fixed inset-0 overflow-hidden bg-[#efe6d8]">
+    <div className="fixed inset-0 overflow-hidden bg-gradient-to-b from-[#8d84c6] via-[#f591a3] to-[#ffa563]">
       <div
         className={`absolute inset-0 transition-opacity duration-700 ${
           visible ? "opacity-100" : "opacity-0"
@@ -98,7 +98,7 @@ export default function World() {
       {/* Quiet reminder in the corner while you're inside the world.
           Fades opposite to the entry overlay. */}
       <div
-        className={`absolute left-4 top-4 z-10 text-xs text-neutral-500/80 transition-opacity duration-500 ${
+        className={`absolute left-4 top-4 z-10 text-xs text-white/70 transition-opacity duration-500 ${
           locked ? "opacity-100" : "opacity-0"
         }`}
       >

@@ -42,14 +42,34 @@ export const ISLAND = {
   WALK_RADIUS: 15,
 };
 
-export const SKY = {
-  // Warm cream. Used for BOTH the background and the fog so distant
-  // geometry melts into the sky instead of ending at a hard horizon.
-  COLOR: "#efe6d8",
+// ------------------------------------------------------------
+// The sunset. The sun hangs low in the west over the ocean; the
+// sky grades from orange at the horizon, through pink, to a soft
+// lavender overhead. Every color here feeds both the sky shader
+// and the ocean shader, so the scene always agrees with itself.
+// ------------------------------------------------------------
+export const SUNSET = {
+  // Which way the sun is, as a direction from the island. Mostly -z
+  // (which is where you face when you spawn), slightly to the left,
+  // and just barely above the horizon.
+  SUN_DIRECTION: [-0.22, 0.11, -1] as const,
 
-  // Fog starts softening things at NEAR and fully swallows them at FAR.
-  FOG_NEAR: 12,
-  FOG_FAR: 60,
+  SKY_TOP: "#8d84c6",     // soft lavender, straight up
+  SKY_MID: "#f591a3",     // pink, mid-height
+  SKY_HORIZON: "#ffa563", // orange, right at the waterline
+  SUN_COLOR: "#fff0c9",   // the sun's disc and its glints on the water
+
+  // Fog only touches the island and objects (the sky and ocean shaders
+  // opt out) — it melts their far edges into the sunset.
+  FOG_COLOR: "#f9a06f",
+  FOG_NEAR: 14,
+  FOG_FAR: 70,
+};
+
+export const OCEAN = {
+  LEVEL: -5,              // water height; the island's rock dips into it
+  DEEP_COLOR: "#455493",  // the water's own indigo, away from the sun
+  SIZE: 3000,             // width of the water plane (meters) — the horizon
 };
 
 export const TOOLTIP = {
