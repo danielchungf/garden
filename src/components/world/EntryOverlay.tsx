@@ -16,7 +16,7 @@ interface EntryOverlayProps {
 
 function Key({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="rounded border border-neutral-300 bg-white/70 px-1.5 py-0.5 font-sans text-[11px] text-neutral-500">
+    <kbd className="rounded border border-white/30 bg-white/15 px-1.5 py-0.5 font-sans text-[11px] text-white/85">
       {children}
     </kbd>
   );
@@ -25,11 +25,11 @@ function Key({ children }: { children: React.ReactNode }) {
 export default function EntryOverlay({ locked, hasEntered }: EntryOverlayProps) {
   return (
     <div
-      className={`absolute inset-0 z-20 flex flex-col items-center justify-center gap-8 bg-[#efe6d8]/60 backdrop-blur-sm transition-opacity duration-500 ${
+      className={`absolute inset-0 z-20 flex flex-col items-center justify-center gap-8 bg-[#54304a]/30 backdrop-blur-sm transition-opacity duration-500 ${
         locked ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
-      <p className="text-sm tracking-wide text-neutral-500">a small world</p>
+      <p className="text-sm tracking-wide text-white/85">a small world</p>
 
       <button
         id="enter-world"
@@ -38,7 +38,7 @@ export default function EntryOverlay({ locked, hasEntered }: EntryOverlayProps) 
         {hasEntered ? "click to continue" : "click to explore"}
       </button>
 
-      <div className="flex items-center gap-4 text-xs text-neutral-400">
+      <div className="flex items-center gap-4 text-xs text-white/60">
         <span className="flex items-center gap-1">
           <Key>W</Key>
           <Key>A</Key>

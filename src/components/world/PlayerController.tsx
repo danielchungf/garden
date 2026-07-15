@@ -16,7 +16,7 @@ import { useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { PointerLockControls } from "@react-three/drei";
 import * as THREE from "three";
-import { PLAYER, ISLAND, MAX_DELTA } from "./constants";
+import { PLAYER, LAND, MAX_DELTA } from "./constants";
 
 // Scratch vectors for the frame loop, allocated once at module load.
 // Never call `new` inside useFrame — allocating 60 times a second
@@ -119,15 +119,19 @@ export default function PlayerController({
       grounded.current = true;
     }
 
-    // 7. Invisible fence at the island rim. A radial clamp (scale the
-    //    position back onto the circle) lets you slide smoothly along
-    //    the edge instead of sticking to it.
-    const dist = Math.hypot(cam.position.x, cam.position.z);
-    if (dist > ISLAND.WALK_RADIUS) {
-      const scale = ISLAND.WALK_RADIUS / dist;
-      cam.position.x *= scale;
-      cam.position.z *= scale;
-    }
+    // 7. Invisible fences. West: stop just before the cliff edge so you
+    //    can stand at the brink and look down at the sea. Everywhere
+    //    else: a wide boundary long before the land visibly ends.
+    //    Each axis clamps independently, so you slide along the fence
+    //    instead of sticking to it.
+    cam.position.z = Math.min(
+      Math.max(cam.position.z, LAND.COAST_Z + LAND.CLIFF_MARGIN),
+      LAND.EXTENT
+    );
+    cam.position.x = Math.min(
+      Math.max(cam.position.x, -LAND.EXTENT),
+      LAND.EXTENT
+    );
   });
 
   return (
