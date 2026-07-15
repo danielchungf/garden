@@ -310,6 +310,7 @@ export default function Home() {
             { name: "Claude", image: "/claude-logo.png" },
             { name: "Conductor", image: "/conductor-logo.png" },
             { name: "Xcode", image: "/xcode-logo.png" },
+            { name: "Ghostty", image: "/ghostty-logo.png" },
             { name: "Mobbin", image: "/mobbin-logo.png" },
             { name: "Supabase", image: "/subapase-logo.png" },
           ].map((tool) => (
