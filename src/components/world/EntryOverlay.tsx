@@ -33,7 +33,7 @@ export default function EntryOverlay({ locked, hasEntered }: EntryOverlayProps) 
 
       <button
         id="enter-world"
-        className="cursor-pointer rounded-full bg-white/90 px-8 py-3.5 text-sm text-neutral-700 shadow-md transition-shadow duration-300 hover:shadow-lg"
+        className="cursor-pointer rounded-full bg-white/90 px-8 py-3.5 text-sm text-neutral-700 shadow-md transition-[box-shadow,transform] duration-150 ease-[var(--ease-out)] hover:shadow-lg active:scale-[0.97]"
       >
         {hasEntered ? "click to continue" : "click to explore"}
       </button>
