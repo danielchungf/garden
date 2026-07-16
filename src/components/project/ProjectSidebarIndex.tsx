@@ -78,7 +78,7 @@ export default function ProjectSidebarIndex({ projectTitle, sections }: ProjectS
             <li key={item.id}>
               <button
                 onClick={() => handleClick(item.id)}
-                className={`text-left text-h3 w-full cursor-pointer ${
+                className={`text-left text-h3 w-full cursor-pointer transition-colors ${
                   isActive
                     ? 'text-content-primary'
                     : 'text-content-muted hover:text-content-primary'

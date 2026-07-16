@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { MonthlyMusic } from "@/types/music";
 
 const STAGGER_DELAY = 0.08;
@@ -15,6 +15,7 @@ function formatMonthLabel(month: string): string {
 
 export function MusicList({ months }: { months: MonthlyMusic[] }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   if (months.length === 0) {
     return (
@@ -34,13 +35,24 @@ export function MusicList({ months }: { months: MonthlyMusic[] }) {
             <button
               key={m.month}
               onClick={() => setSelectedIndex(i)}
-              className={`px-3 py-1.5 rounded-full text-h3 transition-colors ${
+              className={`relative px-3 py-1.5 rounded-full text-h3 transition-colors ${
                 i === selectedIndex
-                  ? "bg-neutral-800 text-white"
+                  ? "text-white"
                   : "bg-neutral-100 text-content-secondary hover:bg-neutral-150"
               }`}
             >
-              {formatMonthLabel(m.month)}
+              {i === selectedIndex && (
+                <motion.span
+                  layoutId="month-pill"
+                  className="absolute inset-0 rounded-full bg-neutral-800"
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", duration: 0.35, bounce: 0.1 }
+                  }
+                />
+              )}
+              <span className="relative z-10">{formatMonthLabel(m.month)}</span>
             </button>
           ))}
         </div>

@@ -19,7 +19,7 @@ interface IconButtonAsLink
 type IconButtonProps = IconButtonAsButton | IconButtonAsLink;
 
 export function IconButton({ icon: Icon, className, tooltip, ...props }: IconButtonProps) {
-  const classes = `w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center cursor-pointer ${className ?? ""}`;
+  const classes = `w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-[background-color,transform] duration-100 ease-[var(--ease-out)] active:scale-[0.94] flex items-center justify-center cursor-pointer ${className ?? ""}`;
 
   const content = ("href" in props && props.href) ? (
     <a {...props} className={classes}>

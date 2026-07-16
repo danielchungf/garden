@@ -149,7 +149,7 @@ export default function Home() {
           <div className="relative group">
             <Link
               href="/onigiri"
-              className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-colors flex items-center justify-center"
+              className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-150 border border-neutral-150 transition-[background-color,transform] duration-100 ease-[var(--ease-out)] active:scale-[0.94] flex items-center justify-center"
               data-track-section="onigiri"
               data-track-label="Onigiri"
               data-track-href="/onigiri"
