@@ -1,6 +1,6 @@
 # Eng Lexicon
 
-A growing glossary of design engineering concepts, explained simply. No jargon. Real examples. Built by Danny as he learns — and shared publicly to help other designers cross into code.
+A growing glossary of engineering concepts, explained simply. No jargon. Real examples. Built by me as I tinker and build.
 
 ---
 
@@ -404,7 +404,3 @@ The act of taking your code changes and pushing them to the live production envi
 ```
 
 **Compare:** Pushing to GitHub stores your code. Deploying to prod makes it live. They're different steps — you can push code without deploying it.
-
----
-
-*The Eng Lexicon grows as Danny learns. Each entry comes from a real moment — a project, a question, a conversation. It's a record of becoming a design engineer.*

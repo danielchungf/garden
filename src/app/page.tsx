@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Camera, Mail, Music, Twitter } from "lucide-react";
+import { Camera, Mail, Music, Twitter } from "lucide-react";
 import { ChatIcon } from "@/components/icons/ChatIcon";
 import { IconButton } from "@/components/IconButton";
 // import { PixelPlantCanvas } from "@/components/pixel-plant/PixelPlantCanvas";
 import { getProjectBySlug } from "@/data/projects";
+import { getAllPosts } from "@/lib/writing";
 
 const workProjects = [
   {
@@ -95,6 +96,8 @@ function WorkCard({
 }
 
 export default function Home() {
+  const posts = getAllPosts();
+
   return (
     <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px] flex flex-col gap-[80px]">
       {/* Intro */}
@@ -243,12 +246,6 @@ export default function Home() {
               href: "https://testflight.apple.com/join/Ugcevx1V",
               image: "/mettle-logo.png",
             },
-            {
-              name: "Bites",
-              tagline: "Stickerfy Your Food",
-              href: "https://testflight.apple.com/join/FZSHez9g",
-              image: "/bites-logo.png",
-            },
           ].map((project) => {
             const isExternal = project.href.startsWith("http");
             const className = "flex items-center gap-5 p-2 rounded-lg hover:bg-neutral-100 transition-colors";
@@ -330,17 +327,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Writing - hidden until first article is ready */}
-      {/* <section>
-        <h2 className="text-h2 text-content-primary mb-5">Writing</h2>
-        <Link
-          href="/writing"
-          className="flex items-center gap-2 text-body-regular text-content-tertiary hover:text-content-primary transition-colors"
-        >
-          Read my writing
-          <ArrowRight size={16} />
-        </Link>
-      </section> */}
+      {/* Writing */}
+      {posts.length > 0 && (
+        <section>
+          <h2 className="text-h2 text-content-primary mb-5">Writing</h2>
+          <div className="flex flex-col gap-3">
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/writing/${post.slug}`}
+                className="w-fit text-body-regular text-content-tertiary hover:text-content-primary transition-colors"
+                data-track-section="writing"
+                data-track-label={post.title}
+                data-track-href={`/writing/${post.slug}`}
+              >
+                {post.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
     </main>
   );
