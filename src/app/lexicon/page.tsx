@@ -7,7 +7,7 @@ import LexiconSidebarIndex from "@/components/LexiconSidebarIndex";
 export const metadata = {
   title: "Eng Lexicon — Daniel Chung",
   description:
-    "A growing glossary of design engineering concepts, explained simply.",
+    "A growing glossary of engineering concepts, explained simply.",
 };
 
 export default async function LexiconPage() {

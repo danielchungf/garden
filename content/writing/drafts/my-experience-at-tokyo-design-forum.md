@@ -5,7 +5,7 @@ date: 2026-02-25
 tags:
   - design
   - ai
-published: true
+published: false
 cover: /tdf.avif
 ---
 I was not supposed to attend [Tokyo Design Forum](https://www.tokyodesignforum.com/). But I'm glad I did.

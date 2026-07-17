@@ -157,6 +157,11 @@
   font-size: 16px;
   letter-spacing: -0.02em;
   line-height: 26px;
+  color: theme(colors.neutral.800);
+}
+
+/* Lexicon keeps the lighter body tone; writing uses primary text */
+.lexicon-prose {
   color: theme(colors.neutral.500);
 }
 
@@ -191,6 +196,7 @@
 }
 
 .prose p {
+  line-height: 28px;
   margin-bottom: 16px;
 }
 

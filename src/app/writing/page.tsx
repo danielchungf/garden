@@ -49,9 +49,6 @@ export default function WritingPage() {
                 <h2 className="text-h2 text-content-primary group-hover:text-content-accent transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-body-regular text-content-tertiary line-clamp-2">
-                  {post.description}
-                </p>
                 <time className="text-h3 text-content-muted mt-1">
                   {formatDate(post.date)}
                 </time>
