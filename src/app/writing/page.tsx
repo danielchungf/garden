@@ -28,9 +28,6 @@ export default function WritingPage() {
 
       <div className="mt-[60px]">
         <h1 className="text-hero text-content-primary">Writing</h1>
-        <p className="mt-3 text-body-regular text-content-tertiary">
-          Thoughts on design, engineering, and building products.
-        </p>
       </div>
 
       <div className="mt-[60px] flex flex-col">
@@ -43,7 +40,7 @@ export default function WritingPage() {
             <Link
               key={post.slug}
               href={`/writing/${post.slug}`}
-              className="group py-4 border-b border-muted first:border-t"
+              className="group py-4"
             >
               <div className="flex flex-col gap-1">
                 <h2 className="text-h2 text-content-primary group-hover:text-content-accent transition-colors">
