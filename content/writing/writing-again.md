@@ -12,7 +12,7 @@ I remember finding joy in writing. In articulating complex ideas in long documen
 
 I guess I could blame it on my first seven years of work. My first internship had me writing emails about the most boring, corporate legal guidelines. And then I made the jump to branding, ad campaigns, social media. It fried a few wires, and suddenly essays shrank to 140 characters and seven-word video hooks. No wonder I was burned out on my last marketing job and my content creator phase.
 
-I could also make the *excuse* that I don't feel comfortable writing in English, which is completely true, by the way. I have no doubts that my writing skills in Spanish are far superior, and my struggle to communicate in English is still real. That's a story worth its own entry. But I don't really care now.
+I could also make the *excuse* that I don't feel comfortable writing in English, which is completely true, by the way. I have no doubts that my writing skills in Spanish are far superior, and I still struggle to find the right words sometimes. That's a story worth its own entry. But I don't really care now.
 
 Naturally, I have tried to get back into writing multiple times in the last three years, with no real success. The problem is now clear to me: I was writing with a goal and audience in mind. Not for the sake of writing, but with the Publish button waiting patiently at the end of the document.
 
