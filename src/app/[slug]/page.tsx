@@ -157,6 +157,21 @@ export default async function ProjectPage({ params }: PageProps) {
           <ProjectGallery items={project.gallery} />
         )}
       </LightboxProvider>
+
+      {/* Outro video - same element as the hero */}
+      {project.outroVideo && (
+        <div className="mt-[60px] w-full overflow-hidden rounded-lg bg-neutral-100">
+          <video
+            src={project.outroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="block w-full aspect-video object-cover"
+          />
+        </div>
+      )}
     </main>
   );
 }

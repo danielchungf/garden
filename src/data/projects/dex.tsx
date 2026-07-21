@@ -4,7 +4,8 @@ export const dexProject: ProjectData = {
   slug: 'dex',
   title: 'Dex',
   tagline: 'The Language Learning Camera',
-  heroVideo: 'https://www.dex.camera/cdn/shop/videos/c/vp/e2a452bc8452493c9e428a85a5fa459a/e2a452bc8452493c9e428a85a5fa459a.HD-1080p-7.2Mbps-65204699.mp4?v=0',
+  heroVideo: '/projects/dex/Dumpling.mp4',
+  outroVideo: '/projects/dex/Beach.mp4',
   heroAlt: 'Dex language learning camera interface',
   description: [
     'Dex turns real-world moments into language lessons for kids ages 3-8. Instead of passive screen time, Dex invites kids to notice the world around them with curiosity and talk back to it, transforming routines into learning opportunities. The result is a gentle rhythm of daily speaking, listening, and discovery that feels like play but compounds into real progress.',
