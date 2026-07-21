@@ -1,53 +1,69 @@
-import fs from 'fs';
-import path from 'path';
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { IconButton } from '@/components/IconButton';
-import { LightboxProvider } from '@/components/project/Lightbox';
-import PhotoFlythrough from '@/components/photography/PhotoFlythrough';
+import { getPhotos, formatSettings, formatDate } from '@/lib/photography';
 
 export const metadata: Metadata = {
   title: 'Photography — Daniel Chung',
-  description: 'A flythrough of photographs by Daniel Chung.',
+  description: 'Photographs by Daniel Chung.',
 };
-
-// Read everything dropped into /public/photography at build time, so adding a
-// photo is just dropping a file in — no list to maintain.
-function getPhotos(): string[] {
-  const dir = path.join(process.cwd(), 'public', 'photography');
-  let files: string[] = [];
-  try {
-    files = fs.readdirSync(dir);
-  } catch {
-    return [];
-  }
-  return files
-    .filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f))
-    .sort()
-    .map((f) => `/photography/${f}`);
-}
 
 export default function PhotographyPage() {
   const photos = getPhotos();
 
   return (
-    <main className="fixed inset-0 overflow-hidden bg-[#fdfdfc]">
-      <Link href="/" className="absolute left-5 top-5 z-20">
+    <main className="max-w-[660px] mx-auto px-5 py-[60px] md:py-[80px] flex flex-col">
+      <Link href="/">
         <IconButton icon={ArrowLeft} />
       </Link>
 
-      <LightboxProvider>
-        {photos.length > 0 ? (
-          <PhotoFlythrough images={photos} />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p className="text-body-regular text-content-tertiary">
-              Drop photos into <code>/public/photography</code> to populate this space.
-            </p>
-          </div>
-        )}
-      </LightboxProvider>
+      <div className="mt-[60px]">
+        <h1 className="text-hero text-content-primary">Photos</h1>
+        <p className="mt-3 text-body-regular text-content-primary">
+          I&apos;ve always enjoyed photography, but it wasn&apos;t until I got my
+          FUJIFILM X-T5 that I started taking it more seriously, especially during my
+          travels. Here&apos;s a selection of my most recent shots.
+        </p>
+      </div>
+
+      {photos.length === 0 ? (
+        <p className="mt-[60px] text-body-regular text-content-tertiary">
+          Drop photos into <code>/public/photography</code> to populate this page.
+        </p>
+      ) : (
+        <div className="mt-[60px] flex flex-col gap-4">
+          {photos.map((photo, i) => {
+            const settings = formatSettings(photo);
+            const date = formatDate(photo.date);
+            const hasMeta = photo.location || date || settings;
+            return (
+              <figure key={photo.src} className="group relative">
+                <img
+                  src={photo.src}
+                  alt={photo.location ?? `Photograph ${i + 1}`}
+                  loading={i < 2 ? 'eager' : 'lazy'}
+                  className="block w-full h-auto"
+                />
+                {hasMeta && (
+                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    {photo.location && (
+                      <p className="text-sm font-medium text-white">{photo.location}</p>
+                    )}
+                    {date && (
+                      <p className="mt-0.5 text-xs text-white/70">{date}</p>
+                    )}
+                    {settings && (
+                      <p className="mt-0.5 text-xs text-white/80">{settings}</p>
+                    )}
+                  </figcaption>
+                )}
+              </figure>
+            );
+          })}
+        </div>
+      )}
     </main>
   );
 }

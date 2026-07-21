@@ -198,7 +198,7 @@ export default function Home() {
       {/* Work */}
       <section>
         <h2 className="text-h2 text-content-primary mb-5">Work</h2>
-        <div className="work-grid grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="work-grid grid grid-cols-1 md:grid-cols-2 gap-7">
           {workProjects.map((project) => (
             <WorkCard key={project.slug} project={project} />
           ))}
