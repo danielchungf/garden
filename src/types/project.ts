@@ -26,6 +26,7 @@ export interface ProjectData {
   url?: string; // External link for the project
   heroImage?: string;
   heroVideo?: string;
+  outroVideo?: string;
   heroAlt: string;
   description: string[];
   team: TeamMember[];
