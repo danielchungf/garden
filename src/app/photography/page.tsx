@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { IconButton } from '@/components/IconButton';
+import { PhotoCard } from '@/components/photography/PhotoCard';
 import { getPhotos, formatSettings, formatDate } from '@/lib/photography';
 
 export const metadata: Metadata = {
@@ -37,29 +37,18 @@ export default function PhotographyPage() {
           {photos.map((photo, i) => {
             const settings = formatSettings(photo);
             const date = formatDate(photo.date);
-            const hasMeta = photo.location || date || settings;
+            const hasMeta = Boolean(photo.location || date || settings);
             return (
-              <figure key={photo.src} className="group relative">
-                <img
-                  src={photo.src}
-                  alt={photo.location ?? `Photograph ${i + 1}`}
-                  loading={i < 2 ? 'eager' : 'lazy'}
-                  className="block w-full h-auto"
-                />
-                {hasMeta && (
-                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {photo.location && (
-                      <p className="text-sm font-medium text-white">{photo.location}</p>
-                    )}
-                    {date && (
-                      <p className="mt-0.5 text-xs text-white/70">{date}</p>
-                    )}
-                    {settings && (
-                      <p className="mt-0.5 text-xs text-white/80">{settings}</p>
-                    )}
-                  </figcaption>
-                )}
-              </figure>
+              <PhotoCard
+                key={photo.src}
+                src={photo.src}
+                alt={photo.location ?? `Photograph ${i + 1}`}
+                eager={i < 2}
+                location={photo.location}
+                date={date}
+                settings={settings}
+                hasMeta={hasMeta}
+              />
             );
           })}
         </div>
