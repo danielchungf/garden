@@ -24,7 +24,16 @@ export default async function PhotographyPage() {
         <p className="mt-3 text-body-regular text-content-primary">
           I&apos;ve always enjoyed photography, but it wasn&apos;t until I got my
           FUJIFILM X-T5 that I started taking it more seriously, especially during my
-          travels. Here&apos;s a selection of my most recent shots.
+          travels. Here&apos;s a selection of my most recent shots, also showcased on{' '}
+          <a
+            href="https://openfeed.photo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-[3px] decoration-muted hover:text-content-primary hover:decoration-content-primary"
+          >
+            Openfeed
+          </a>
+          .
         </p>
       </div>
 
