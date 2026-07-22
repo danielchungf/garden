@@ -8,42 +8,59 @@ fades in a metadata overlay (location + camera settings).
 
 | File | Role |
 | --- | --- |
-| `src/lib/photography.ts` | Discovery. Scans `public/photography/` at **build time** → `Photo[]` (`src`, `filename`, + metadata). `getPhotos()` and `formatSettings()`. |
-| `src/data/photoMeta.ts` | Per-photo metadata, keyed by filename (location, iso, aperture, shutter, focalLength, …). All optional. |
-| `src/app/photography/page.tsx` | The gallery. Photos stacked full-width with a `gap-4`; CSS `group-hover` reveals the metadata overlay. |
-| `public/photography/*.webp` | The photos (flat folder). |
+| `src/lib/photo-exif.ts` | Reads EXIF (camera, lens, settings, `DateTimeOriginal`) from each **original** file at build time. Single source of truth for the gallery, photo pages, and feed — nothing is hand-copied, so nothing drifts. |
+| `src/lib/photography.ts` | Discovery. Scans `public/photography/` at **build time** → `Photo[]` (`src`, `filename`, `slug`, `location`, `exif`), newest-first by capture date. `getPhotos()`, `getPhotoBySlug()`, `formatSettings()`. |
+| `src/data/photoMeta.ts` | **Location only**, keyed by filename — the one thing not in EXIF (no GPS). Optional; a photo with no entry just shows no location. |
+| `src/app/photography/page.tsx` | The gallery. Photos stacked full-width (`gap-4`); each card links to its permalink and reveals a caption on hover. |
+| `src/app/photo/[slug]/page.tsx` | Per-photo permalink pages (`/photo/DSCF0421/`). |
+| `public/photography/*.jpg` | The photos (flat folder) — kept as **originals with EXIF intact** (do NOT strip metadata). |
 | Home icon | `src/app/page.tsx` — the `Camera` `IconButton` linking to `/photography`. |
 
 ## Adding photos
 
 Drop image files into `public/photography/` (any of `jpe?g|png|webp|avif|gif`); they're
-auto-discovered and sorted by filename — **no list to maintain.** Optimize to WebP
-(2048px long edge, q90):
+auto-discovered, sorted newest-first by EXIF capture date — **no list to maintain.**
 
-```bash
-cd public/photography
-for f in *.JPG; do
-  cwebp -q 90 -m 6 -mt -quiet "$f" -o "${f%.JPG}.webp" && rm "$f"
-done
-```
-
+> **Keep the originals** (or at least their EXIF). Camera/lens/settings/date are read from
+> each file's EXIF at build time; a stripped/re-exported copy loses them. If you optimize,
+> use a tool that preserves EXIF (e.g. `mozjpeg`/`jpegtran`, not a bare `cwebp`).
+>
 > Discovery runs at build time, so new photos need a rebuild (or dev-server refresh).
 
-## Adding metadata (hover overlay)
+## Metadata
 
-`cwebp` strips EXIF, so metadata is hand-maintained in `src/data/photoMeta.ts`, keyed by
-filename. Everything is optional — a photo with no entry just shows no overlay.
+**Camera, lens, ISO, aperture, shutter, focal length, and date come straight from EXIF** —
+never hand-maintained. The only thing you add by hand is `location` (the files carry no
+GPS), in `src/data/photoMeta.ts`:
 
 ```ts
-'DSCF0421.webp': { location: 'Tokyo, Japan', iso: 100, aperture: 'f/2.8', shutter: '1/250s', focalLength: '35mm' },
+'DSCF0421.jpg': { location: 'Tokyo, Japan' },
 ```
 
-The overlay shows `location` on the first line and the camera settings joined as
-`ISO 100 · f/2.8 · 1/250s · 35mm` on the second (via `formatSettings`). The entries
-currently in the file are **example placeholders** — replace them with real values.
+The caption/photo page shows `location`, the date, and the settings joined as
+`ISO 100 · f/2.8 · 1/250s · 35mm` (via `formatSettings`).
 
-> Hover is pointer-only; on touch devices the overlay doesn't appear (a tap-to-toggle
-> could be added later if wanted).
+> Hover is pointer-only; on touch, tapping a gallery card navigates to its permalink page,
+> which shows the same metadata.
+
+## OpenFeed (JSON Feed at `/photo/feed.json`)
+
+The gallery also publishes a [JSON Feed 1.1](https://jsonfeed.org/version/1.1) for
+[OpenFeed](https://openfeed.photo) (`_photoring.ring: "openfeed-demo"`, permanent
+`creator: "danielchung"`).
+
+| File | Role |
+| --- | --- |
+| `src/app/photo/feed.json/route.ts` | The feed route (`dynamic = 'force-static'` → generated at build). |
+| `src/lib/photo-feed.ts` | Builds the feed from `getPhotos()` — the same EXIF the gallery uses — into `_photoring.exif`, uses each photo's `capturedAt` for `date_published` (RFC 3339), sorts newest-first. |
+| `src/app/photo/[slug]/page.tsx` | Per-photo permalink pages (`/photo/DSCF4540/`) — each item's `id`/`url`. `slug` = filename without extension. |
+| `src/lib/site.ts` | `SITE_URL` — the production origin baked into every absolute URL. |
+| Discovery `<link>` | In `src/app/layout.tsx` metadata (`alternates.types`) → on **every** page's `<head>`. |
+
+The feed is **never hand-edited** — the whole site (gallery, photo pages, feed) shares one
+EXIF read from the originals (`photo-exif.ts`), so publishing is unchanged: drop a `.jpg` in
+`public/photography/`, rebuild, deploy. The feed's `image` is the full-size file
+(`/photography/<file>.jpg`); OpenFeed generates its own sizes.
 
 ## Archived: the flythrough
 
